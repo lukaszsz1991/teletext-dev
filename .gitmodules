@@ -1,0 +1,8 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/lukaszsz1991/teletext-backend.git
+	branch = main
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/lukaszsz1991/teletext-frontend.git
+	branch = main
