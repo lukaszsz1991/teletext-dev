@@ -32,8 +32,8 @@ make rebase
 
 Pod tą komendą kryje się ten skrpyt:
 ```
-	git pull --rebase
-	git submodule update --init --recursive --remote --jobs 2
+git pull --rebase
+git submodule update --init --recursive --remote --jobs 2
 ```
 
 Wykonanie jednej z powyższych komend spowoduje pobranie najnowszej wersji repozytoriów z branchy `main`.
@@ -44,10 +44,14 @@ Wykonanie jednej z powyższych komend spowoduje pobranie najnowszej wersji repoz
 
 Jeszcze nie wdrożono.
 
+---
+
 ## Autorzy
 - [Sebastian Górski](https://github.com/sgorski00/)
 - [Jakub Grzymisławski](https://github.com/jgrzymislawski/)
 - [Łukasz Szenkiel](https://github.com/lukaszsz1991/)
 - [Rafał Wilczewski](https://github.com/Rafal-wq/)
+
+---
 
 > Projekt wykonywany w ramach kursu *Projektowanie i programowanie systemów internetowych II*
