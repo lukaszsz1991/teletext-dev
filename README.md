@@ -11,15 +11,24 @@ To repozytorium zawiera konfigurację infrastruktury projektu **Teletext**, w ty
 Każdy submoduł jest osobnym repozytorium Git. Wchodząc do odpowiedniego podfolderu (`backend` lub `frontend`) pracujemy w tym repozytroium. Oznacza to, że możemy w nim tworzyć gałęzie, aktualizować kod, robić commity, PR itd.
 
 :exclamation: Po wdrożeniu zmian w submodułach w branchu `main`, należy zaktualizować repozytorium `teletext-dev`:
+
+```
+make rebase # (opcjonalnie)
+make push-backend # dla zmian w backendzie
+make push-frontend # dla zmian w frontendzie
+```
+
+lub dla większej kontroli (np. modyfikacja commit message):
+
 ```
 cd teletext-dev
 make rebase
 git add backend # lub git add frontend, w zależności od zaktualizowanego repozytorium
 git commit -m "chore: update submodules"
-git push -u origin main
+git push -u origin xxx # xxx należy zastąpić aktualnym lokalnym branchem
 ```
 
-> Ten commit w `teletext-dev` aktualizuje referencję submodułu do najnowszego commitu na main i pozwala wszystkim współpracownikom pobrać aktualny stan projektu.
+> Ten commit w `teletext-dev` aktualizuje referencję submodułu do najnowszej wersji `main` i pozwala wszystkim współpracownikom pobrać aktualny stan projektu.
 
 ### Aktualizacja submodułów
 
