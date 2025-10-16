@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:17.2
+    container_name: teletext-postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - teletext-net
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker-files/java/Dockerfile
+    container_name: teletext-backend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://${POSTGRES_URL}:${POSTGRES_PORT}/${POSTGRES_DB}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+      - APP_PORT=${BACKEND_PORT}
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT}:8080"
+    volumes:
+      - ./docker-files/java/.m2:/root/.m2
+      - ./docker-files/java/logs:/app/logs
+    networks:
+      - teletext-net
+    depends_on:
+      - postgres
+
+volumes:
+  postgres-data:
+
+networks:
+  teletext-net:
+    driver: bridge

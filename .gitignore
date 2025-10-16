@@ -1,0 +1,26 @@
+# Chores
+.env
+docker-files/**/logs
+**/.m2/
+
+# Intellij IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Visual Studio Code
+.vscode/
+
+# Build
+/target/
+/build/
+/out/
+
+# Others
+.DS_Store
+Thumbs.db

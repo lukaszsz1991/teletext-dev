@@ -16,3 +16,19 @@ push-frontend:
 	@git add frontend
 	@git commit -m "chore:update frontend submodule"
 	@git push -u origin $$(git rev-parse --abbrev-ref HEAD)
+
+build:
+	@echo "Building compose services"
+	@docker compose build --no-cache
+
+up:
+	@echo "Starting compose services"
+	@docker compose up -d
+
+down:
+	@echo "Stopping compose services"
+	@docker compose down
+
+logs:
+	@echo "Showing compose service logs"
+	@docker compose logs -f
