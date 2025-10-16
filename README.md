@@ -2,7 +2,9 @@
 
 To repozytorium zawiera konfigurację infrastruktury projektu **Teletext**, w tym:
 - repozytoria `teletext-backend` i `teletext-frontend`
-- `Makefile` ze skryptami pomocnicznymi
+- folder `docker-files` z plikami obrazami Dockera i logami serwisów
+- plik `Makefile` ze skryptami pomocnicznymi
+- konfigurację serwisów Dckera w pliku `compose.yml` 
 
 ---
 
@@ -51,7 +53,34 @@ Wykonanie jednej z powyższych komend spowoduje pobranie najnowszej wersji repoz
 
 ## Docker Compose
 
-Jeszcze nie wdrożono.
+Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w tym:
+- bazę danych PostgreSQL (`postgres`)
+- backend Spring Boot (`backend`)
+- frontend React + Nginx (`frontend`) | jeszcze nie zaimplementowany
+
+### Uruchomienie
+1. Upewnij się, że masz zainstalowanego Dockera.
+2. Skopiuj plik `.env.example` do `.env` i dostosuj zmienne środowiskowe według potrzeb.
+3. Uruchom serwisy za pomocą komendy:
+   ```
+   docker-compose up --build -d
+   ```
+
+---
+
+## Makefile
+
+Pomocne komendy do pracy nad projektem:
+
+| Komenda              | Opis                                                  |
+|----------------------|-------------------------------------------------------|
+| `make rebase`        | Aktualizuje repozytorium i submoduły                  |
+| `make push-backend`  | Wypycha zmiany w backendzie do zdalnego repozytorium  |
+| `make push-frontend` | Wypycha zmiany w frontendzie do zdalnego repozytorium |
+| `make build`         | Buduje obrazy Docker dla wszystkich serwisów          |
+| `make up`            | Uruchamia serwisy Docker Compose                      |
+| `make down`          | Zatrzymuje serwisy Docker Compose                     |
+| `make logs`          | Wyświetla logi wszystkich serwisów                    |
 
 ---
 
