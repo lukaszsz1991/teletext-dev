@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Sebastian Górski Jakub Grzymisławski Łukasz Szenkiel Rafał Wilczewski" />
+  <title>Dokumentacja aplikacji Teletext</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Dokumentacja aplikacji Teletext</h1>
+<p class="author">Sebastian Górski<br />
+Jakub Grzymisławski<br />
+Łukasz Szenkiel<br />
+Rafał Wilczewski</p>
+</header>
+<p> </p>
+<p><img src="docimages/63f814de448e0ae2b8955662540f9f0f81df7b78.png" alt="image" style="width:60.0%" /><br />
+</p>
+<h1 id="opis" class="unnumbered">Opis</h1>
+<p>Dokumentacja dotyczy aplikacji <em>Teletext</em>, nowoczesnego systemu zarządzania telegazetą. Aplikacja została zaprojektowana z myślą o ułatwieniu tworzenia, edycji i publikacji treści telegazety w sposób szybki, intuicyjny i zgodny ze współczesnymi standardami cyfrowymi.</p>
+<p>System umożliwia użytkownikom zarówno przeglądanie dostępnych stron telegazety, jak i zarządzanie jej zawartością w czasie rzeczywistym. Względem aplikacji postawiono następujące wymagania:</p>
+<ul>
+<li><p>użytkownik może przeglądać strony telegazety (struktura numerów stron!)</p></li>
+<li><p>użytkownik może wyszukiwać informacje po tytułach i kategoriach administrator może tworzyć własne strony telegazety</p></li>
+<li><p>strona ma numer, tytuł, kategorię i treść</p></li>
+<li><p>treść może zawierać tekst i proste elementy graficzne (ASCII) administrator może przypisywać</p></li>
+<li><p>wybrane integracje do numerów stron</p></li>
+<li><p>należy zaimplementować min. 7 integracji, np. pogoda, wyniki lotto, głosowania w Sejmie, ogłoszenia o pracę, kursy walut, ceny kruszców</p></li>
+<li><p>administrator widzi statystyki najczęściej odwiedzanych stron</p></li>
+</ul>
+<p>Celem projektu jest stworzenie narzędzia, które nie tylko ułatwi pracę redaktorom i administratorom telegazety, ale również zapewni użytkownikom końcowym przyjazny i funkcjonalny interfejs do przeglądania informacji.</p>
+<h1 id="zespół">Zespół</h1>
+<h2 id="osoby-w-zespole">Osoby w zespole</h2>
+<p>Zespół tworzą:</p>
+<ul>
+<li><p>Sebastian Górski</p></li>
+<li><p>Jakub Grzymisławski</p></li>
+<li><p>Łukasz Szenkiel</p></li>
+<li><p>Rafał Wilczewski</p></li>
+</ul>
+<h2 id="role-w-zespole">Role w zespole</h2>
+<figure>
+<img src="docimages/5bba7590e5370886450571bc0af2bc46f4493e3a.png" alt="Podział ról w zespole" id="fig:role" /><figcaption>Podział ról w zespole<span label="fig:role"></span></figcaption>
+</figure>
+<h1 id="architektura-systemu">Architektura systemu</h1>
+<p>W tej sekcji przedstawiono opis architektury systemu <em>Instacar</em>.</p>
+<h2 id="diagram-czynności">Diagram czynności</h2>
+<p>Diagram czynności ilustruje przebieg głównych procesów w aplikacji, takich jak rezerwacja pojazdu czy logowanie użytkownika.</p>
+<h2 id="diagram-kluczowych-klas">Diagram kluczowych klas</h2>
+<p>Diagram klas przedstawia strukturę aplikacji <em>InstaCar</em> w ujęciu obiektowym, wraz z zależnościami między klasami.</p>
+<h2 id="diagram-encji">Diagram encji</h2>
+<p>Diagram encji przedstawia strukturę bazy danych systemu wypożyczalni pojazdów, uwzględniając tabele użytkowników, pojazdów, wynajmów oraz relacje między nimi.</p>
+<h2 id="diagram-przypadków-użycia">Diagram przypadków użycia</h2>
+<p>Diagram przypadków użycia ukazuje interakcje użytkowników z systemem, identyfikując główne funkcje dostępne w aplikacji.</p>
+<h2 id="implementacja-kodu">Implementacja kodu</h2>
+<p>Aplikacja <em>InstaCar</em> została zaimplementowana z wykorzystaniem frameworka Spring Boot, który ułatwia tworzenie aplikacji webowych w języku Java. Projekt został zorganizowany zgodnie z architekturą MVC (Model-View-Controller), co zapewnia czytelność i separację odpowiedzialności w kodzie.</p>
+<h3 id="stos-technologiczny">Stos technologiczny</h3>
+<ul>
+<li><p><strong>Backend</strong>: Java 21, Spring Boot, Spring Data JPA, Spring Security</p></li>
+<li><p><strong>Frontend</strong>: HTML, CSS, Thymeleaf</p></li>
+<li><p><strong>Baza danych</strong>: PostgreSQL, Redis 7.4.2-alpine</p></li>
+<li><p><strong>Zarządzanie projektem</strong>: Maven</p></li>
+</ul>
+<h3 id="widoki-i-formularze">Widoki i formularze</h3>
+<p>Do tworzenia warstwy prezentacji wykorzystano szablony Thymeleaf, które integrują się bezpośrednio ze Spring Boot. Formularze użytkownika przesyłają dane do kontrolerów, gdzie są one poddawane walidacji. W przypadku błędów formularz zostaje ponownie załadowany z zachowaniem wcześniej wpisanych danych oraz komunikatami o nieprawidłowościach.</p>
+<h3 id="obsługa-błędów">Obsługa błędów</h3>
+<p>System posiada mechanizmy obsługi wyjątków</p>
+<h3 id="przykładowe-listingi-kodu-w-języku-programowania-java">Przykładowe listingi kodu w języku programowania Java</h3>
+<h1 id="instrukcja-uruchomieniowa">Instrukcja uruchomieniowa</h1>
+<p>W celu uruchomienia aplikacji należy zainstalować na swoim urządzeniu następujące aplikacje: <em>Docker</em>, <em>GitHub CLI</em> oraz – w przypadku systemu Windows – aplikację umożliwiającą uruchomienie komendy <em>make</em>.</p>
+<ol>
+<li><p>Sklonowanie repozytorium: <code>git clone https://github.com/sgorski00/InstaCar.git</code> <code>cd InstaCar</code></p></li>
+<li><p>Utworzenie profilu <em>prod</em> (opcjonalne):</p>
+<ul>
+<li><p>Utwórz plik <code>application-prod.properties</code> w ścieżce <code>/src/main/resources/</code>.</p></li>
+<li><p>W pliku konfiguracyjnym ustaw dane klienta OAuth2 oraz poczty e-mail.</p></li>
+<li><p>Zmień wartość przy kluczu <code>spring.profiles.default</code> na <code>prod</code>.</p></li>
+</ul></li>
+<li><p>Uruchomienie aplikacji: w konsoli wpisz komendę <code>make up</code>.</p></li>
+</ol>
+<h1 id="interfejs-użytkownika">Interfejs użytkownika</h1>
+<h2 id="ogólna-charakterystyka">Ogólna charakterystyka</h2>
+<p>Interfejs użytkownika stanowi warstwę wizualną aplikacji.</p>
+<h2 id="widok-użytkownika-końcowego">Widok użytkownika końcowego</h2>
+<p>Widok użytkownika końcowego został zaprojektowany z myślą o łatwej i intuicyjnej nawigacji. Na górze każdej strony znajduje się pasek nawigacyjny, który umożliwia szybki dostęp do głównych sekcji serwisu. Użytkownik ma do wyboru następujące opcje:</p>
+<h2 id="widok-administratora">Widok administratora</h2>
+<p>Interfejs administratora dostępny jest po zalogowaniu się użytkownika z odpowiednimi uprawnieniami. Układ strony został podzielony na dwie główne części: panel nawigacyjny znajdujący się po lewej stronie oraz obszar roboczy po prawej.</p>
+<h2 id="styl-wizualny-i-doświadczenie-użytkownika-ux">Styl wizualny i doświadczenie użytkownika (UX)</h2>
+<p>Projekt interfejsu użytkownika aplikacji został przygotowany z myślą o prostocie, przejrzystości oraz łatwości nawigacji. Główne założenia dotyczące stylu wizualnego oraz UX obejmują:</p>
+<ul>
+<li><p><strong>Minimalistyczny design</strong> – zredukowana ilość elementów dekoracyjnych na rzecz funkcjonalności i czytelności treści.</p></li>
+<li><p><strong>Konsekwentna kolorystyka</strong> – dominującym kolorem jest zieleń, stosowana w panelach bocznych, przyciskach i nagłówkach. Kolor ten jest używany także do wyróżniania aktywnych elementów nawigacyjnych.</p></li>
+<li><p><strong>Responsywny układ</strong> – interfejs został zaprojektowany w sposób umożliwiający wygodne korzystanie zarówno na komputerach, jak i na urządzeniach mobilnych.</p></li>
+<li><p><strong>Intuicyjna nawigacja</strong> – wszystkie kluczowe sekcje aplikacji są dostępne z poziomu głównego menu, dzięki czemu użytkownik zawsze wie, gdzie się znajduje i jak wrócić do wcześniejszych ekranów.</p></li>
+<li><p><strong>Powiadomienia i walidacja</strong> – użytkownik jest na bieżąco informowany o wynikach swoich akcji (np. wysyłanie formularzy, błędy walidacyjne), co zwiększa poczucie kontroli nad systemem.</p></li>
+<li><p><strong>Zachowanie danych w formularzach</strong> – w przypadku błędów formularzowych dane wprowadzone przez użytkownika nie są tracone, co znacząco poprawia komfort korzystania z aplikacji.</p></li>
+</ul>
+<p>Dzięki powyższym rozwiązaniom interfejs jest przyjazny dla użytkownika końcowego, a zarazem funkcjonalny i efektywny z punktu widzenia administratora systemu.</p>
+<h1 id="sec:dokumentacja_technologiczna">Dokumentacja technologiczna</h1>
+<h2 id="struktura-bazy-danych">Struktura bazy danych</h2>
+<p>Baza danych aplikacji do wynajmu samochodów została zaprojektowana tak, aby efektywnie zarządzać wszystkimi kluczowymi aspektami systemu – od danych użytkowników i pojazdów, po szczegóły transakcji wynajmu. Poniżej przedstawiono przegląd głównych tabel i ich wzajemnych relacji:</p>
+<h3 id="tabela-1"><code>Tabela 1</code></h3>
+<p>Ta tabela służy do ...</p>
+<h2 id="opis-środowiska">Opis środowiska</h2>
+<h3 id="baza-danych---postgresql-17.2">Baza danych - PostgreSQL 17.2</h3>
+<p>System bazodanowy wykorzystywany w projekcie to PostgreSQL w wersji 17.2. PostgreSQL to wydajny, stabilny i bezpieczny system zarządzania relacyjną bazą danych, szeroko stosowany w środowiskach produkcyjnych.<br />
+Konfiguracja dostępu do bazy danych znajduje się w pliku docker-compose.yml.</p>
+<h3 id="migracje-schematu-flyway-10.20.1">Migracje schematu – Flyway 10.20.1</h3>
+<p>Do zarządzania migracjami schematu bazy danych wykorzystywane jest narzędzie Flyway w wersji 10.20.1. Flyway umożliwia wersjonowanie zmian w strukturze bazy danych i ich automatyczne stosowanie w środowiskach deweloperskich, testowych oraz produkcyjnych.<br />
+Cechy użycia Flyway w projekcie:</p>
+<ul>
+<li><p>migracje definiowane w postaci skryptów SQL w katalogu db/migration,</p></li>
+<li><p>automatyczne wykrywanie i stosowanie nowych migracji przy starcie aplikacji,</p></li>
+<li><p>wsparcie dla rollbacków i walidacji historii migracji.</p></li>
+</ul>
+<h3 id="cache">Cache – Redis 7.4.2-alpine</h3>
+<p>Do przechowywania danych tymczasowych oraz buforowania odpowiedzi system korzysta z Redis w wersji 7.4.2-alpine. Redis działa jako zewnętrzny, szybki magazyn danych typu key-value, wykorzystywany m.in. do cache’owania wyników zapytań i danych sesyjnych.<br />
+Wersja alpine została wybrana ze względu na minimalny rozmiar obrazu oraz szybki czas uruchamiania kontenera.</p>
+</body>
+</html>
