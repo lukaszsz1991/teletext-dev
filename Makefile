@@ -1,4 +1,4 @@
-.PHONY: rebase pull
+.PHONY: rebase pull build logs up down build-up push-backend push-frontend
 
 rebase:
 	@echo "Pulling latest changes from teletext-dev and submodules"
@@ -21,6 +21,10 @@ build:
 	@echo "Building compose services"
 	@docker compose build --no-cache
 
+build-up:
+	@echo "Building and starting compose services"
+	@docker compose up --build -d
+
 up:
 	@echo "Starting compose services"
 	@docker compose up -d
@@ -32,3 +36,18 @@ down:
 logs:
 	@echo "Showing compose service logs"
 	@docker compose logs -f
+
+restart:
+	@echo "Restarting and rebuilding all services"
+	@docker compose down
+	@docker compose up -d --build
+
+restart-frontend:
+	@echo "Restarting and rebuilding frontend service"
+	@docker compose down frontend
+	@docker compose up -d --build frontend
+
+restart-backend:
+	@echo "Restarting and rebuilding backend service"
+	@docker compose down backend
+	@docker compose up -d --build backend
