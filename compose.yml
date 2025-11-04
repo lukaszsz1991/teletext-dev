@@ -40,6 +40,22 @@ services:
     depends_on:
       - postgres
 
+  frontend:
+    build:
+      context: .
+      dockerfile: docker-files/frontend/Dockerfile
+    container_name: teletext-frontend
+    environment:
+      - BACKEND_URL=${BACKEND_URL}
+      - BACKEND_PORT=${BACKEND_PORT}
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT}:80"
+    networks:
+      - teletext-net
+    depends_on:
+      - backend
+
 volumes:
   postgres-data:
 

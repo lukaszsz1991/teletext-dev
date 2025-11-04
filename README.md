@@ -56,7 +56,7 @@ Wykonanie jednej z powyższych komend spowoduje pobranie najnowszej wersji repoz
 Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w tym:
 - bazę danych PostgreSQL (`postgres`)
 - backend Spring Boot (`backend`)
-- frontend React + Nginx (`frontend`) | jeszcze nie zaimplementowany
+- frontend React + Nginx (`frontend`)
 
 ### Uruchomienie
 1. Upewnij się, że masz zainstalowanego Dockera.
@@ -65,6 +65,12 @@ Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w t
    ```
    docker-compose up --build -d
    ```
+   
+   lub użyj:
+
+   ```
+   make up
+   ```
 
 ---
 
@@ -72,15 +78,18 @@ Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w t
 
 Pomocne komendy do pracy nad projektem:
 
-| Komenda              | Opis                                                  |
-|----------------------|-------------------------------------------------------|
-| `make rebase`        | Aktualizuje repozytorium i submoduły                  |
-| `make push-backend`  | Wypycha zmiany w backendzie do zdalnego repozytorium  |
-| `make push-frontend` | Wypycha zmiany w frontendzie do zdalnego repozytorium |
-| `make build`         | Buduje obrazy Docker dla wszystkich serwisów          |
-| `make up`            | Uruchamia serwisy Docker Compose                      |
-| `make down`          | Zatrzymuje serwisy Docker Compose                     |
-| `make logs`          | Wyświetla logi wszystkich serwisów                    |
+| Komenda                 | Opis                                                  |
+|-------------------------|-------------------------------------------------------|
+| `make rebase`           | Aktualizuje repozytorium i submoduły                  |
+| `make push-backend`     | Wypycha zmiany w backendzie do zdalnego repozytorium  |
+| `make push-frontend`    | Wypycha zmiany w frontendzie do zdalnego repozytorium |
+| `make build`            | Buduje obrazy Docker dla wszystkich serwisów          |
+| `make up`               | Uruchamia serwisy Docker Compose                      |
+| `make down`             | Zatrzymuje serwisy Docker Compose                     |
+| `make logs`             | Wyświetla logi wszystkich serwisów                    |
+| `make restart`          | Przebudowuje i restaruje wszystkie serwisy            |
+| `make restart-backend`  | Przebudowuje i restaruje backend aplikacji            |
+| `make restart-frontend` | Przebudowuje i restaruje frontend aplikacji           |
 
 ---
 
