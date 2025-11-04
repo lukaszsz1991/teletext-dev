@@ -22,7 +22,7 @@ build:
 	@docker compose build --no-cache
 
 build-up:
-	@echo "Building and restarting compose services"
+	@echo "Building and starting compose services"
 	@docker compose up --build -d
 
 up:
