@@ -61,7 +61,8 @@ Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w t
 ### Uruchomienie
 1. Upewnij się, że masz zainstalowanego Dockera.
 2. Skopiuj plik `.env.example` do `.env` i dostosuj zmienne środowiskowe według potrzeb.
-3. Uruchom serwisy za pomocą komendy:
+3. Wykonaj powyższy punkt dla `.env.webclient.example`, kopiując go do `.env.webclient`.
+4. Uruchom serwisy za pomocą komendy:
    ```
    docker-compose up --build -d
    ```
@@ -69,7 +70,7 @@ Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w t
    lub użyj:
 
    ```
-   make up
+   make build-up
    ```
 
 ---
@@ -78,18 +79,19 @@ Wykorzystujemy Docker Compose do uruchamiania wszystkich serwisów lokalnie, w t
 
 Pomocne komendy do pracy nad projektem:
 
-| Komenda                 | Opis                                                  |
-|-------------------------|-------------------------------------------------------|
-| `make rebase`           | Aktualizuje repozytorium i submoduły                  |
-| `make push-backend`     | Wypycha zmiany w backendzie do zdalnego repozytorium  |
-| `make push-frontend`    | Wypycha zmiany w frontendzie do zdalnego repozytorium |
-| `make build`            | Buduje obrazy Docker dla wszystkich serwisów          |
-| `make up`               | Uruchamia serwisy Docker Compose                      |
-| `make down`             | Zatrzymuje serwisy Docker Compose                     |
-| `make logs`             | Wyświetla logi wszystkich serwisów                    |
-| `make restart`          | Przebudowuje i restaruje wszystkie serwisy            |
-| `make restart-backend`  | Przebudowuje i restaruje backend aplikacji            |
-| `make restart-frontend` | Przebudowuje i restaruje frontend aplikacji           |
+| Komenda                 | Opis                                                     |
+|-------------------------|----------------------------------------------------------|
+| `make rebase`           | Aktualizuje repozytorium i submoduły                     |
+| `make push-backend`     | Wypycha zmiany w backendzie do zdalnego repozytorium     |
+| `make push-frontend`    | Wypycha zmiany w frontendzie do zdalnego repozytorium    |
+| `make build`            | Buduje obrazy Docker dla wszystkich serwisów             |
+| `make build-up`         | Buduje i uruchamia obrazy Docker dla wszystkich serwisów |
+| `make up`               | Uruchamia serwisy Docker Compose                         |
+| `make down`             | Zatrzymuje serwisy Docker Compose                        |
+| `make logs`             | Wyświetla logi wszystkich serwisów                       |
+| `make restart`          | Przebudowuje i restaruje wszystkie serwisy               |
+| `make restart-backend`  | Przebudowuje i restaruje backend aplikacji               |
+| `make restart-frontend` | Przebudowuje i restaruje frontend aplikacji              |
 
 ---
 

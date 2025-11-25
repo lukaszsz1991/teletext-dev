@@ -1,5 +1,6 @@
 # Chores
 .env
+.env.webclient
 docker-files/**/logs
 **/.m2/
 
