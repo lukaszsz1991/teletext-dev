@@ -19,6 +19,8 @@ services:
       context: .
       dockerfile: docker-files/java/Dockerfile
     container_name: teletext-backend
+    env_file:
+      - .env.webclient
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://${POSTGRES_URL}:${POSTGRES_PORT}/${POSTGRES_DB}
       - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
