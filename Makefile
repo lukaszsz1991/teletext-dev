@@ -51,3 +51,7 @@ restart-backend:
 	@echo "Restarting and rebuilding backend service"
 	@docker compose down backend
 	@docker compose up -d --build backend
+
+psql:
+	@echo "Connecting to psql..."
+	@docker exec -it teletext-postgres psql -d teletext-db -U postgres
