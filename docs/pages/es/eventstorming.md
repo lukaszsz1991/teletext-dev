@@ -33,7 +33,7 @@
 | **Różowy**           | **Reguła/Polityka (Policy)**   | Procesy, które dzieją się automatycznie.                                    |
 | **Różowy (Parking)** | **Pytanie (Question)**         | Wątpliwości do dalszej dyskusji.                                            |
 
-  ![](/run/user/1000/doc/9f95f25f/es2.png)
+  ![](es2.png)
 
 ---
 
@@ -70,7 +70,7 @@ Zidentyfikowane i pogrupowane logiczne moduły, które posłużą jako podstawa 
    
    * *Kluczowe Eventy:* `Strona dodana`, `Właściwości strony zapisane`.
    
-   ![](/run/user/1000/doc/ae0527c0/es3.png)
+   ![](es3.png)
 
 ---
 
@@ -92,4 +92,4 @@ Zidentyfikowane wątpliwości/problemy wymagające przedyskutowania i rozstrzygn
 **Dokumentacja:** Stworzona mapa jest doskonałą podstawą do tworzenia **backlogu produktu**, **projektowania architektury** i **pisania dokumentacji**.
 **Projektowanie Architektury:** Wykorzystanie granic kontekstów do definicji usług lub modułów.
 
-  ![](/run/user/1000/doc/18764614/es4.png)
+  ![](es4.png)
