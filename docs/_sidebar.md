@@ -11,7 +11,7 @@
 * **🛠️ Dokumentacja Techniczna**
     * [Instrukcja uruchomienia (Quick Start)](./pages/tech/quickstart.md)
     * [Architektura systemu](./pages/tech/architecture.md)
-    * [Model danych (ERD)](./pages/tech/database-model.md)
+    * [Model bazy danych (ERD)](./pages/tech/database-model.md)
     * [Środowisko i infrastruktura](./pages/tech/environment.md)
 
 * **📜 Rejestr Decyzji (ADR)**
