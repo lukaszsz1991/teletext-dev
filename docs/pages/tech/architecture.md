@@ -10,7 +10,7 @@ Aplikacja została zbudowana zgodnie z wzorcem **MVC (Model-View-Controller)**. 
 * **Cache:** Redis 7.4.2-alpine (przechowywanie danych tymczasowych i sesyjnych).
 * **Zarządzanie migracjami:** Flyway 10.20.1 (wersjonowanie schematu bazy).
 
-## Kluczowe Diagramy
+## Kluczowe Diagramy (ToDo)
 * **Diagram czynności:** Ilustruje przebieg procesów takich jak tworzenie strony telegazety czy logowanie.
 * **Diagram klas:** Przedstawia ujęcie obiektowe aplikacji i zależności między serwisami a kontrolerami.
 * **Diagram encji (ERD):** Prezentuje strukturę tabel w bazie PostgreSQL i relacje między nimi.
