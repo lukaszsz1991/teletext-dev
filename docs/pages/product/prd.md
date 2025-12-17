@@ -1,16 +1,18 @@
 # Product Requirements Document (PRD) - Teletext
 
 ## Cel projektu
-[cite_start]Celem projektu jest stworzenie nowoczesnego systemu zarządzania telegazetą, ułatwiającego tworzenie, edycję i publikację treści w sposób intuicyjny i zgodny ze współczesnymi standardami cyfrowymi[cite: 3, 7].
+Celem projektu jest stworzenie nowoczesnego systemu zarządzania telegazetą, ułatwiającego tworzenie, edycję i publikację treści w sposób szybki, intuicyjny i zgodny ze współczesnymi standardami cyfrowymi. System umożliwia użytkownikom zarówno przeglądanie dostępnych stron telegazety, jak i zarządzanie jej zawartością w czasie rzeczywistym.
 
 ## Założenia funkcjonalne
-* [cite_start]**Przeglądanie stron:** Użytkownik może przeglądać strony telegazety z zachowaniem struktury numerów stron[cite: 6].
-* [cite_start]**Wyszukiwanie:** Możliwość wyszukiwania informacji po tytułach i kategoriach[cite: 6].
-* [cite_start]**Zarządzanie treścią:** Administrator może tworzyć i edytować strony zawierające tekst oraz proste elementy graficzne ASCII[cite: 6].
-* [cite_start]**Integracje:** System obsługuje minimum 7 zewnętrznych integracji (np. pogoda, wyniki lotto, kursy walut)[cite: 6].
-* [cite_start]**Statystyki:** Panel administratora wyświetlający najczęściej odwiedzane strony[cite: 6].
+* **Przeglądanie stron:** Użytkownik może przeglądać strony telegazety z zachowaniem odpowiedniej struktury numerów stron.
+* **Wyszukiwanie:** Użytkownik może wyszukiwać informacje po tytułach i kategoriach.
+* **Zarządzanie treścią:** Administrator może tworzyć własne strony telegazety, które posiadają numer, tytuł, kategorię oraz treść (tekst i proste elementy graficzne ASCII).
+* **Integracje:** System posiada minimum 7 integracji, takich jak pogoda, wyniki lotto, głosowania w Sejmie, ogłoszenia o pracę, kursy walut oraz ceny kruszców.
+* **Analityka:** Administrator ma dostęp do statystyk najczęściej odwiedzanych stron przez użytkowników.
 
 ## Założenia niefunkcjonalne
-* [cite_start]**Interfejs:** Minimalistyczny design zapewniający czytelność treści[cite: 27].
-* [cite_start]**Responsywność:** Interfejs dostosowany do urządzeń mobilnych i komputerów[cite: 30].
-* [cite_start]**Niezawodność:** Obsługa błędów formularzy z zachowaniem wpisanych danych[cite: 33].
+* **Minimalistyczny design:** Zredukowana ilość elementów dekoracyjnych na rzecz funkcjonalności i czytelności treści.
+* **Responsywność:** Interfejs zaprojektowany w sposób umożliwiający wygodne korzystanie zarówno na komputerach, jak i na urządzeniach mobilnych.
+* **Konsekwentna kolorystyka:** Wykorzystanie zieleni jako koloru dominującego w panelach, przyciskach i nagłówkach (nawiązanie do klasycznej telegazety).
+* **Niezawodność danych:** W przypadku błędów w formularzach dane wprowadzone przez użytkownika są zachowywane, co poprawia komfort pracy z systemem.
+* **Wydajność:** Wykorzystanie systemu Redis do buforowania odpowiedzi i przechowywania danych tymczasowych.
