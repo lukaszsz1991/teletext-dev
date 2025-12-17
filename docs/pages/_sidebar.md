@@ -1,7 +1,0 @@
-* [🏠 Strona Główna](./)
-* [Test](./test.md)
-* [Wybór bazy danych](./doc/adr/1.md)
-* [Wybór architektury systemu](./doc/adr/ADR-002-wybor-architektury-systemu.md)
-* [Mechanizm autoryzacji](./doc/adr/ADR-003-autoryzacja.md)
-* [Frontend](./doc/adr/ADR-004-frontend.md)
-* [Soft delete](./doc/adr/ADR-005-soft-delete-ux-page-number.md)
