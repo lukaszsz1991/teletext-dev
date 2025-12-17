@@ -1,8 +1,9 @@
 * **[🏠 Strona Główna](./)**
+* **[Quick start](./pages/quickstart.md)**
 * **[Event storming](./pages/es/eventstorming.md)**
 * **ADR**
-* [Wybór bazy danych](./pages/adr/ADR-001-wybor-bazy-danych.md)
-* [Wybór architektury systemu](./pages/adr/ADR-002-wybor-architektury-systemu.md)
-* [Mechanizm autoryzacji](./pages/adr/ADR-003-autoryzacja.md)
-* [Frontend](./pages/adr/ADR-004-frontend.md)
-* [Soft delete](./pages/adr/ADR-005-soft-delete-ux-page-number.md)
+  * [Wybór bazy danych](./pages/adr/ADR-001-wybor-bazy-danych.md)
+  * [Wybór architektury systemu](./pages/adr/ADR-002-wybor-architektury-systemu.md)
+  * [Mechanizm autoryzacji](./pages/adr/ADR-003-autoryzacja.md)
+  * [Frontend](./pages/adr/ADR-004-frontend.md)
+  * [Soft delete](./pages/adr/ADR-005-soft-delete-ux-page-number.md)
