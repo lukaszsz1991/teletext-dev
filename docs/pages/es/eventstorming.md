@@ -10,7 +10,7 @@
 
 * **Uczestnicy (Aktorzy, Faza 1):** Łukasz Szenkiel, Rafał Wilczewski, Jakub Grzymisławski, Sebastian Górski.
   
-  ![](/run/user/1000/doc/4fa5dfc9/es1.png)
+  ![](es1.png)
 
 ---
 
