@@ -9,7 +9,7 @@
     * [Sesja Event Storming](./pages/es/eventstorming.md)
 
 * **🛠️ Dokumentacja Techniczna**
-    * [Instrukcja uruchomienia (Quick Start)](./pages/quickstart.md)
+    * [Instrukcja uruchomienia (Quick Start)](./pages/tech/quickstart.md)
     * [Architektura systemu](./pages/tech/architecture.md)
     * [Model danych (ERD)](./pages/tech/database-model.md)
     * [Środowisko i infrastruktura](./pages/tech/environment.md)
