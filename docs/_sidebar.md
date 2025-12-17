@@ -1,6 +1,6 @@
-# [🏠 Strona Główna](./)
-# [Event storming](./pages/es/eventstorming.md)
-# ADR
+* **[🏠 Strona Główna](./)**
+* **[Event storming](./pages/es/eventstorming.md)**
+* **ADR**
 * [Wybór bazy danych](./pages/adr/ADR-001-wybor-bazy-danych.md)
 * [Wybór architektury systemu](./pages/adr/ADR-002-wybor-architektury-systemu.md)
 * [Mechanizm autoryzacji](./pages/adr/ADR-003-autoryzacja.md)
