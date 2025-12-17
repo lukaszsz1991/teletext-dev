@@ -1,5 +1,4 @@
 * [🏠 Strona Główna](./)
-* [Test](./test.md)
 * [Wybór bazy danych](./docs/pages/adr/ADR-001-wybor-bazy-danych.md)
 * [Wybór architektury systemu](./docs/pages/adr/ADR-002-wybor-architektury-systemu.md)
 * [Mechanizm autoryzacji](./docs/pages/adr/ADR-003-autoryzacja.md)
