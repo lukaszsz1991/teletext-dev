@@ -6,13 +6,17 @@
     * [Backlog i Estymata](./pages/product/backlog.md)
 
 * **🧠 Projektowanie (Discovery)**
-    * [Sesja Event Storming](./pages/es/eventstorming.md)
+    * [Sesja Event Storming](./pages/proj/eventstorming.md)
+    * [Sprinty](./pages/proj/sprints.md)
+    * [Retrospekcje](./pages/proj/retro.md)
 
 * **🛠️ Dokumentacja Techniczna**
     * [Instrukcja uruchomienia (Quick Start)](./pages/tech/quickstart.md)
     * [Architektura systemu](./pages/tech/architecture.md)
     * [Model bazy danych (ERD)](./pages/tech/database-model.md)
     * [Środowisko i infrastruktura](./pages/tech/environment.md)
+    * [API](.pages/tech/api.md)
+    * [Integracje](.pages/tech/intetgrations.md)
 
 * **📜 Rejestr Decyzji (ADR)**
     * [001: Wybór bazy danych](./pages/adr/ADR-001-wybor-bazy-danych.md)
