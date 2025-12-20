@@ -53,6 +53,7 @@ services:
       - teletext-net
     depends_on:
       - postgres
+      - redis
 
   frontend:
     build:
@@ -70,8 +71,26 @@ services:
     depends_on:
       - backend
 
+  redis:
+    image: redis:8.4.0-alpine
+    container_name: teletext-redis
+    command: >
+      redis-server
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lfu
+      --appendonly yes
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - teletext-net
+
+
 volumes:
   postgres-data:
+  redis-data:
 
 networks:
   teletext-net:
