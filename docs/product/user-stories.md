@@ -23,7 +23,6 @@
 
 ### Dla Administratora
 * **Tworzenie treści:** Jako administrator, chcę tworzyć nowe strony z numerem, tytułem i kategorią, aby systematycznie rozwijać bazę informacji.
-* **Grafika ASCII:** Jako administrator, chcę dodawać proste elementy graficzne ASCII do treści, aby poprawić estetykę i czytelność stron.
 * **Automatyzacja:** Jako administrator, chcę przypisywać konkretne integracje (np. pogodę) do wybranych numerów stron, aby system sam aktualizował dane bez mojej ingerencji.
 * **Analityka:** Jako administrator, chcę widzieć statystyki najczęściej odwiedzanych stron, aby lepiej dopasować treści do potrzeb odbiorców.
 * **Bezpieczeństwo:** Jako administrator, chcę logować się do dedykowanego panelu zarządzania, aby mieć pewność, że tylko uprawnione osoby modyfikują treść telegazety.
