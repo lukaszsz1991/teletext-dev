@@ -3,8 +3,8 @@
 ## Persony
 
 ### 1. Bronisław, 62 lata, Użytkownik Końcowy
-* **Profil:** Emeryt, który od lat korzysta z tradycyjnej telegazety.
-* **Potrzeba:** Chce szybko sprawdzić wyniki Lotto i pogodę bez konieczności nawigowania po skomplikowanych portalach informacyjnych.
+* **Profil:** Emeryt wojskowy, który od lat korzysta z tradycyjnej telegazety.
+* **Potrzeba:** Chce szybko sprawdzić wyniki Lotto, tabelę Ekstraklsy i pogodę bez konieczności nawigowania po skomplikowanych portalach informacyjnych.
 * **Cel:** Uzyskanie wiarygodnych informacji w znajomym, tekstowym formacie.
 
 ### 2. Michał, 30 lat, Administrator
