@@ -36,6 +36,13 @@ services:
       - SPRING_MAIL_USERNAME=${SPRING_MAIL_USERNAME}
       - SPRING_MAIL_PASSWORD=${SPRING_MAIL_PASSWORD}
       - TELETEXT_ADMIN_LOGIN_URL=${TELETEXT_ADMIN_LOGIN_URL}
+      - TELETEXT_CACHE_DEFAULT_TTL_MS=${TELETEXT_CACHE_DEFAULT_TTL_MS}
+      - TELETEXT_CACHE_LONG_TTL_MS=${TELETEXT_CACHE_LONG_TTL_MS}
+      - TELETEXT_CACHE_SHORT_TTL_MS=${TELETEXT_CACHE_SHORT_TTL_MS}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_USERNAME=${REDIS_USERNAME}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
     restart: unless-stopped
     ports:
       - "${BACKEND_PORT}:8080"
@@ -46,6 +53,7 @@ services:
       - teletext-net
     depends_on:
       - postgres
+      - redis
 
   frontend:
     build:
@@ -63,8 +71,26 @@ services:
     depends_on:
       - backend
 
+  redis:
+    image: redis:8.4.0-alpine
+    container_name: teletext-redis
+    command: >
+      redis-server
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lfu
+      --appendonly yes
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - teletext-net
+
+
 volumes:
   postgres-data:
+  redis-data:
 
 networks:
   teletext-net:
