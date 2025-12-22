@@ -2,12 +2,12 @@
 
 ## Persony
 
-### 1. Użytkownik Końcowy
-* **Profil:** Emeryt, który od lat korzysta z tradycyjnej telegazety.
-* **Potrzeba:** Chce szybko sprawdzić wyniki Lotto i pogodę bez konieczności nawigowania po skomplikowanych portalach informacyjnych.
+### 1. Bronisław, 62 lata, Użytkownik Końcowy
+* **Profil:** Emeryt wojskowy, który od lat korzysta z tradycyjnej telegazety.
+* **Potrzeba:** Chce szybko sprawdzić wyniki Lotto, tabelę Ekstraklsy i pogodę bez konieczności nawigowania po skomplikowanych portalach informacyjnych.
 * **Cel:** Uzyskanie wiarygodnych informacji w znajomym, tekstowym formacie.
 
-### 2. Administrator
+### 2. Michał, 30 lat, Administrator
 * **Profil:** Pracownik działu IT odpowiedzialny za cyfrową dystrybucję treści.
 * **Potrzeba:** Potrzebuje narzędzia do błyskawicznej edycji stron telegazety i zarządzania automatycznymi modułami.
 * **Cel:** Utrzymanie aktualności serwisu i monitorowanie, które treści cieszą się największym zainteresowaniem.
@@ -23,7 +23,6 @@
 
 ### Dla Administratora
 * **Tworzenie treści:** Jako administrator, chcę tworzyć nowe strony z numerem, tytułem i kategorią, aby systematycznie rozwijać bazę informacji.
-* **Grafika ASCII:** Jako administrator, chcę dodawać proste elementy graficzne ASCII do treści, aby poprawić estetykę i czytelność stron.
 * **Automatyzacja:** Jako administrator, chcę przypisywać konkretne integracje (np. pogodę) do wybranych numerów stron, aby system sam aktualizował dane bez mojej ingerencji.
 * **Analityka:** Jako administrator, chcę widzieć statystyki najczęściej odwiedzanych stron, aby lepiej dopasować treści do potrzeb odbiorców.
 * **Bezpieczeństwo:** Jako administrator, chcę logować się do dedykowanego panelu zarządzania, aby mieć pewność, że tylko uprawnione osoby modyfikują treść telegazety.
