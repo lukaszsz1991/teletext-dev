@@ -24,6 +24,7 @@
          * [Lotto](./pages/tech/integrations/lotto.md)
          * [NewsData](./pages/tech/integrations/newsdata.md)
          * [OpenMeteo](./pages/tech/integrations/openmeteo.md)
+         * [TVP](./pages/tech/integrations/tvp.md)
 
 * **📜 Rejestr Decyzji (ADR)**
     * [001: Wybór bazy danych](./pages/adr/ADR-001-wybor-bazy-danych.md)
