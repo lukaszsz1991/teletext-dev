@@ -15,7 +15,6 @@
     * [Architektura systemu](./pages/tech/architecture.md)
     * [Model bazy danych (ERD)](./pages/tech/database-model.md)
     * [Środowisko i infrastruktura](./pages/tech/environment.md)
-    * [API](.pages/tech/api.md)
     * [Integracje](./pages/tech/integrations/README.md)
          * [Narodowy Bank Polski](./pages/tech/integrations/nbp.md)
          * [Highlightly](./pages/tech/integrations/highlightly.md)
