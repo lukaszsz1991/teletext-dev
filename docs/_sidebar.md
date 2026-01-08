@@ -13,6 +13,7 @@
 * **🛠️ Dokumentacja Techniczna**
     * [Instrukcja uruchomienia (Quick Start)](./pages/tech/quickstart.md)
     * [Architektura systemu](./pages/tech/architecture.md)
+    * [OpenAPI](.pages/tech/openapi.md)
     * [Model bazy danych (ERD)](./pages/tech/database-model.md)
     * [Środowisko i infrastruktura](./pages/tech/environment.md)
     * [Integracje](./pages/tech/integrations/README.md)
