@@ -23,3 +23,5 @@ Baza danych została podzielona na logiczne obszary odpowiedzialne za treść, a
 
 ## Zarządzanie schematem
 Integralność struktury bazy danych jest utrzymywana przez narzędzie **Flyway 10.20.1**. Wszystkie zmiany w modelu (tworzenie tabel, dodawanie kolumn) są wprowadzane poprzez skrypty migracyjne SQL, co zapewnia identyczną strukturę bazy na każdym środowisku uruchomieniowym.
+
+![](flyway_schema_history.png)
