@@ -1,4 +1,4 @@
-# Persony i User Stories
+# Persony i User Stories (ujęcie generalne)
 
 ## Persony
 
