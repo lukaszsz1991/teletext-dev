@@ -1,8 +1,9 @@
-* **[🏠 Strona Główna](./)**
+_* **[🏠 Strona Główna](./)**
 
 * **📦 Dokumentacja Produktowa**
     * [Opis produktu (PRD)](./pages/product/prd.md)
-    * [Persony i User Stories](./pages/product/user-stories.md)
+    * [Persony i User Stories](./pages/product/user_stories/user-stories.md)
+         * [US-001: Wdrożenie contentu strony telegazety](./pages/product/user_stories/us-001.md)
     * [Backlog i Estymata](./pages/product/backlog.md)
 
 * **🧠 Projektowanie (Discovery)**
