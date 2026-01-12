@@ -3,7 +3,23 @@ _* **[🏠 Strona Główna](./)**
 * **📦 Dokumentacja Produktowa**
     * [Opis produktu (PRD)](./pages/product/prd.md)
     * [Persony i User Stories](./pages/product/user_stories/user-stories.md)
+      
+         **Strony telegazey**
          * [US-001: Wdrożenie contentu strony telegazety](./pages/product/user_stories/us-001.md)
+         * [US-002: Dodanie endpointu stron z podziałem na kategorie](./pages/product/user_stories/us-002.md)
+         * [US-003: Zamiana pola source na typ predefiniowany](./pages/product/user_stories/us-003.md)
+         * [US-004: Widok użytkownika - wyświetlanie strony telegazety](./pages/product/user_stories/us-004.md)
+         * [US-005: Nawigacja użytkownika między stronami telegazety](./pages/product/user_stories/us-005.md)
+           
+         **Optymalizacja**
+         * [US-006: Cachowanie danych](./pages/product/user_stories/us-006.md)
+     
+         **Panel administracyjny**
+         * [US-007: Cachowanie danych](./pages/product/user_stories/us-007.md)
+     
+         **Integracja z zewnętrznymi API**
+         * [TODO US-157: Cachowanie danych](./pages/product/user_stories/us-177.md)
+           
     * [Backlog i Estymata](./pages/product/backlog.md)
 
 * **🧠 Projektowanie (Discovery)**
