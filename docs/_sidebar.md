@@ -15,10 +15,21 @@ _* **[🏠 Strona Główna](./)**
          * [US-006: Cachowanie danych](./pages/product/user_stories/us-006.md)
      
          **Panel administracyjny**
-         * [US-007: Cachowanie danych](./pages/product/user_stories/us-007.md)
+         * [US-007: Zarządzanie użytkownikami](./pages/product/user_stories/us-007.md)
+         * [US-008: Logowanie administratora](./pages/product/user_stories/us-008.md)
+         * [US-009: Wyświetlanie statystyk stron](./pages/product/user_stories/us-009.md)
+         * [US-010: Zarządzanie stronami telegazety](./pages/product/user_stories/us-010.md)
+         * [US-011: Zarządzanie szablonami stron telegazety](./pages/product/user_stories/us-011.md)
+         * [US-012: Refresh Token](./pages/product/user_stories/us-012.md)
+         * [US-013: Wysyłka maili](./pages/product/user_stories/us-013.md)
      
          **Integracja z zewnętrznymi API**
-         * [TODO US-157: Cachowanie danych](./pages/product/user_stories/us-177.md)
+         * [US-014: Integracja z API ofert pracy](./pages/product/user_stories/us-014.md)
+         * [US-015: Integracja z API Newsów](./pages/product/user_stories/us-015.md)
+         * [US-016: Integracja z API Narodowego Banku Polskiego](./pages/product/user_stories/us-016.md)
+         * [US-017: Integracja z API Pogody](./pages/product/user_stories/us-017.md)
+         * [US-018: Integracja z API Lotto](./pages/product/user_stories/us-018.md)
+         * [US-019: Integracja z API Horoskopu](./pages/product/user_stories/us-019.md)
            
     * [Backlog i Estymata](./pages/product/backlog.md)
 
