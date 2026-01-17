@@ -11,7 +11,7 @@ Aplikacja została zbudowana zgodnie z wzorcem **MVC (Model-View-Controller)**. 
 * **Zarządzanie migracjami:** Flyway 10.20.1 (wersjonowanie schematu bazy).
 * **Serwer proxy:** nginx 1.29
 
-## Kluczowe Diagramy (ToDo)
+## Kluczowe Diagramy
 ##### Diagram czynności
 Diagram ilustruje przebieg procesów takich jak tworzenie strony telegazety czy logowanie.
   ![Diagram czynności](diagram_czynnosci.png)
