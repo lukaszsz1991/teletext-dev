@@ -12,6 +12,13 @@ Aplikacja została zbudowana zgodnie z wzorcem **MVC (Model-View-Controller)**. 
 * **Serwer proxy:** nginx 1.29
 
 ## Kluczowe Diagramy (ToDo)
-* **Diagram czynności:** Ilustruje przebieg procesów takich jak tworzenie strony telegazety czy logowanie.
-* **Diagram klas:** Przedstawia ujęcie obiektowe aplikacji i zależności między serwisami a kontrolerami.
-* **Diagram encji (ERD):** Prezentuje strukturę tabel w bazie PostgreSQL i relacje między nimi.
+##### Diagram czynności
+Diagram ilustruje przebieg procesów takich jak tworzenie strony telegazety czy logowanie.
+  ![Diagram czynności](diagram_czynnosci.png)
+##### Diagram encji 
+Diagram przedstawia strukturę bazy danych systemu telegazety.
+  ![Diagram encji](diagram_encji.png)
+##### Diagram przypadków użycia 
+Diagram ukazuje interakcje u»ytkowników z systemem, identyfikując główne
+funkcje dostępne w aplikacji.
+![Diagram przypadków użycia](diagram_przypadkow_uzycia.png)
