@@ -63,7 +63,7 @@ services:
       dockerfile: Dockerfile
     container_name: teletext-frontend
     environment:
-      - BACKEND_INTERNAL_URL=${BACKEND_INTERNAL_URL}
+      - BACKEND_URL=${BACKEND_URL}
       - REACT_APP_API_URL=${REACT_APP_API_URL}
     restart: unless-stopped
     ports:
