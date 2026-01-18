@@ -1,0 +1,770 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xurl} 
+\usepackage{tabularx}
+\usepackage{array}
+
+
+\usepackage{listings}
+\makeatletter
+\def\l@lstlisting{\@dottedtocline{1}{1.5em}{2.3em}}
+\makeatother
+
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\renewcommand{\lstlistlistingname}{Spis listingów}
+\hypersetup{linktoc=page}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolor}{rgb}{0.98,0.98,0.98}
+\definecolor{keywords}{rgb}{0,0,1}
+\definecolor{comments}{rgb}{0,0.5,0}
+\definecolor{strings}{rgb}{0.6,0,0}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={function, var, return, if, else, for, while, do, break, continue, switch, case, default, new, try, catch, finally, throw, this, typeof, instanceof, in, with, class, const, let, export, import, async, await},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morestring=[b]',
+	sensitive=false,
+	moredelim=[s][\color{keywords}]{<}{>},
+}
+
+% Define the HTML language
+\lstdefinelanguage{HTML5}{
+	sensitive=true,
+	keywords={html,head,title,body,div,span,h1,h2,h3,p,a,section,article,footer,nav},
+	morekeywords=[2]{class,style,lang,data-stellar-background-ratio,id,src,alt}, % Atrybuty HTML
+	morekeywords=[3]{th:block,th:text,th:href,th:replace,th:each,th:if,th:unless}, % Atrybuty Thymeleaf
+	morestring=[b]{"},
+	morestring=[b]{'},
+	morecomment=[s]{}, % Zmieniono z {} na prawidłowe delimitery HTML
+	moredelim=[s][\color{codepurple}]{<}{>}, % To podświetli tagi HTML
+	alsoletter={:,-} % Obsługa dwukropków w Thymeleaf i myślników w atrybutach data-*
+}
+
+\lstdefinestyle{jsStyle}{
+	language=JavaScript,
+	backgroundcolor=\color{backcolor},
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\color{keywords}\bfseries,
+	commentstyle=\color{comments},
+	stringstyle=\color{strings},
+	numberstyle=\tiny\color{codegray},
+	numbers=left,
+	numbersep=5pt,
+	breaklines=true,
+	frame=single,
+	tabsize=2
+}
+
+\lstset{
+	backgroundcolor=\color{backcolor},
+	commentstyle=\color{comments},
+	keywordstyle=\color{keywords},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{strings},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	title=\lstname,
+	frame=single,
+	rulesepcolor=\color{gray},
+	identifierstyle=\color{black},
+}
+
+\lstdefinestyle{customjava}{
+	language=Java,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{gray},
+	stringstyle=\color{teal},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	backgroundcolor=\color{white},
+	frame=single,
+	rulecolor=\color{black},
+	tabsize=2,
+	captionpos=b,
+	breaklines=true,
+	breakatwhitespace=true,
+	showstringspaces=false
+}
+
+% Define the CSS language
+\lstdefinelanguage{CSS}{
+	keywords={%
+		% Selectors
+		html, article, aside, figcaption, figure, footer, header, hgroup, main, nav, section, body,%
+		% Properties
+		font-family, line-height, -webkit-text-size-adjust, -webkit-tap-highlight-color, display, margin, font-size, font-weight, color, text-align, background-color%
+	},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	string=[b]",
+	string=[b]',
+	sensitive=false,
+	classoffset=1, % For pseudo-classes/elements if needed
+	morekeywords={%
+		% Pseudo-classes/elements (example, add more as needed)
+		:hover, :active, :focus, ::before, ::after%
+	},
+	classoffset=0,
+}
+
+% Set up common listing styles (optional, but good practice)
+\lstset{
+	backgroundcolor=\color{backcolor},
+	commentstyle=\color{green!50!black},
+	keywordstyle=\color{blue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{red},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	title=\lstname,
+	frame=single,
+	rulesepcolor=\color{gray},
+	identifierstyle=\color{black},
+}
+
+%opening
+\title{Dokumentacja techniczna aplikacji Teletext}
+\author{Sebastian Górski\\ Jakub Grzymisławski\\ Łukasz Szenkiel\\Rafał Wilczewski}
+\date{}
+
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty} 
+	
+	\begin{center}
+		\vspace{10em}
+		\includegraphics[width=0.6\textwidth]{CWUPlogo.png} \\[10em]
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	
+	\newpage
+\section*{Opis}
+\addcontentsline{toc}{section}{Opis}
+
+Dokumentacja dotyczy aplikacji \textit{Teletext}, nowoczesnego systemu zarządzania telegazetą. Aplikacja została zaprojektowana z myślą o ułatwieniu tworzenia, edycji i publikacji treści telegazety w~sposób szybki, intuicyjny i zgodny ze współczesnymi standardami cyfrowymi.  
+
+System umożliwia użytkownikom zarówno przeglądanie dostępnych stron telegazety, jak i zarządzanie jej zawartością w czasie rzeczywistym. Względem aplikacji postawiono następujące wymagania:  
+\begin{itemize}
+	\item użytkownik może przeglądać strony telegazety (struktura numerów stron!)
+	\item użytkownik może wyszukiwać informacje po tytułach i kategoriach
+	administrator może tworzyć własne strony telegazety
+	\item strona ma numer, tytuł, kategorię i treść
+	\item treść może zawierać tekst i proste elementy graficzne (ASCII)
+	administrator może przypisywać \item wybrane integracje do numerów stron
+	\item należy zaimplementować min. 7 integracji, np. pogoda, wyniki lotto, głosowania w Sejmie, ogłoszenia o pracę, kursy walut, ceny kruszców
+	\item administrator widzi statystyki najczęściej odwiedzanych stron
+\end{itemize}
+
+Celem projektu jest stworzenie narzędzia, które nie tylko ułatwi pracę redaktorom i administratorom telegazety, ale również zapewni użytkownikom końcowym przyjazny i funkcjonalny interfejs do przeglądania informacji. 
+
+\newpage
+\section{Zespół}
+\subsection{Osoby w zespole}
+Zespół tworzą:
+\begin{itemize}
+	\item Sebastian Górski
+	\item Jakub Grzymisławski
+	\item Łukasz Szenkiel
+	\item Rafał Wilczewski
+\end{itemize}
+
+\subsection{Role w zespole}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{docimages/role.png}
+	\caption{Podział ról w zespole}
+	\label{fig:role}
+\end{figure}
+
+	
+\newpage
+\section{Architektura systemu}
+W tej sekcji przedstawiono opis architektury systemu \textit{Teletext}.
+	
+\subsection{Diagram encji}
+	Diagram encji przedstawia strukturę bazy danych systemu telegazety.
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{docimages/diagram_encji.png}
+	\caption{Diagram encji}
+	\label{fig:diagram_encji}
+\end{figure}
+
+\subsection{Diagram czynności}
+Diagram czynności przedstawia logikę biznesową systemu oraz przepływ sterowania podczas interakcji użytkownika z aplikacją. Ilustruje on procesy takie jak autoryzacja dostępu, nawigacja pomiędzy stronami serwisu na podstawie ich numeracji oraz mechanizm rejestrowania statystyk wyświetleń w bazie danych.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{docimages/diagram_czynnosci.png}
+	\caption{Diagram czynności}
+	\label{fig:diagram_czynnosci}
+\end{figure}
+	
+\subsection{Diagram przypadków użycia}
+	Diagram przypadków użycia ukazuje interakcje użytkowników z systemem, identyfikując główne funkcje dostępne w aplikacji.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{docimages/diagram_przypadkow_uzycia.png}
+		\caption{Diagram przypadków użycia}
+		\label{fig:diagram_przypadkow_uzycia}
+	\end{figure}
+	
+	
+\subsection{Implementacja kodu}
+Aplikacja \textit{Teletext} została zaimplementowana z wykorzystaniem frameworka Spring Boot, który ułatwia tworzenie aplikacji webowych w języku Java. Projekt został zorganizowany zgodnie z~architekturą MVC (Model-View-Controller), co zapewnia czytelność i separację odpowiedzialności w~kodzie.
+
+\subsubsection{Stos technologiczny}
+\begin{itemize}
+	\item \textbf{Backend}: Java 21, Spring Boot 3.5.6
+	\item \textbf{Frontend}: HTML5, CSS, React 19
+	\item \textbf{Baza danych}: PostgreSQL (główny magazyn danych)
+	\item \textbf{Cache}: Redis 7.4.2-alpine (przechowywanie danych tymczasowych i sesyjnych)
+	\item \textbf{Zarządzanie migracjami}: Flyway 10.20.1 (wersjonowanie schematu bazy)
+	\item \textbf{Serwer proxy}: nginx 1.29
+\end{itemize}
+
+\subsubsection{Obsługa błędów}
+System posiada mechanizmy obsługi wyjątków 
+
+\subsubsection{Przykładowe listingi kodu w języku programowania Java}
+\begin{lstlisting}[style=customjava, caption={AdminTeletextPageController - kontroler do zarządzania stronami telegazety w panelu admina}, label={lst:admin_teletext_controller}]
+@RestController
+@RequestMapping("/api/admin/pages")
+@RequiredArgsConstructor
+@Tag(
+name = "Admin Teletext Pages",
+description = "Endpoints for managing teletext pages in the admin panel")
+public class AdminTeletextPageController {
+
+private final TeletextPageService pageService;
+
+@GetMapping
+@Operation(
+summary = "Get all teletext pages",
+description =
+"Returns a list of teletext pages. Optionally filter by category and include inactive pages.")
+public ResponseEntity<List<TeletextPageResponse>> getAllPages(
+@RequestParam(required = false) TeletextCategory category,
+@RequestParam(defaultValue = "false") boolean includeInactive) {
+var results = pageService.getAllPages(category, includeInactive);
+return ResponseEntity.ok(results);
+}
+
+@GetMapping("{id}")
+@Operation(
+summary = "Get teletext page by ID",
+description =
+"Returns a single teletext page by its ID, including its content. Shows even inactive pages.")
+public ResponseEntity<TeletextAdminPageResponse> getPageById(@PathVariable long id) {
+var result = pageService.getPageWithContentById(id);
+return ResponseEntity.ok(result);
+}
+
+@PostMapping
+@Operation(
+summary = "Create a new teletext page",
+description =
+"Creates a new teletext page based on the provided data. Must declare type of the page (MANUAL or TEMPLATE).")
+public ResponseEntity<Void> createPage(@RequestBody @Valid PageCreateRequest request) {
+var result = pageService.createPage(request);
+var uri = URI.create("/api/admin/pages/" + result.id());
+return ResponseEntity.created(uri).build();
+}
+
+@PutMapping("{id}")
+@Operation(
+summary = "Update an existing teletext page",
+description =
+"Updates the details of an existing teletext page identified by its ID. Must declare type of the page (MANUAL or TEMPLATE).")
+public ResponseEntity<TeletextAdminPageResponse> updatePage(
+@PathVariable Long id, @RequestBody @Valid PageUpdateRequest request) {
+var result = pageService.updatePage(id, request);
+return ResponseEntity.ok(result);
+}
+
+@PatchMapping("{id}/activate")
+@Operation(
+summary = "Activate a teletext page",
+description =
+"Activates a teletext page identified by its ID. Can activate only previously deactivated pages.")
+public ResponseEntity<Void> activatePage(@PathVariable Long id) {
+pageService.activatePage(id);
+return ResponseEntity.noContent().build();
+}
+
+@DeleteMapping("{id}")
+@Operation(
+summary = "Deactivate a teletext page",
+description =
+"Deactivates a teletext page identified by its ID. The page will no longer be visible in public API.")
+public ResponseEntity<Void> deletePage(@PathVariable Long id) {
+pageService.deactivatePage(id);
+return ResponseEntity.noContent().build();
+}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=customjava, caption={Encja TeletextPage - reprezentacja strony telegazety w bazie danych}, label={lst:teletext_page}]
+@Entity
+@Table(name = "pages")
+@Data
+public class TeletextPage {
+
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+
+@Column(nullable = false)
+private Integer pageNumber;
+
+@Enumerated(EnumType.STRING)
+@Column(nullable = false)
+private TeletextCategory category;
+
+@OneToOne(mappedBy = "page", cascade = CascadeType.ALL, orphanRemoval = true)
+private TeletextPageContent content;
+
+@OneToMany(mappedBy = "page", cascade = CascadeType.ALL, orphanRemoval = true)
+private List<TeletextPageStats> stats;
+
+@ManyToOne(fetch = FetchType.EAGER)
+@JoinColumn(name = "template_id")
+private TeletextPageTemplate template;
+
+@CreationTimestamp private Timestamp createdAt;
+
+@UpdateTimestamp private Timestamp updatedAt;
+
+private Timestamp deletedAt;
+
+@PrePersist
+@PreUpdate
+private void validate() {
+validatePageNumberRange();
+validateCategory();
+}
+
+public String getTitle() {
+if (this.content != null) return this.content.getTitle();
+if (this.template != null) return this.template.getName();
+throw new IllegalStateException(
+"Brak tytułu strony o numerze " + this.pageNumber + ". Nieprawidłowy stan obiektu.");
+}
+
+public String getType() {
+if (this.template != null) return "TEMPLATE";
+return "MANUAL";
+}
+
+private void validatePageNumberRange() {
+int mainPage = this.category.getMainPage();
+if (this.pageNumber < mainPage + 1 || this.pageNumber > mainPage + 99) {
+throw new IllegalPageNumberException(
+"Numer strony "
++ this.pageNumber
++ " jest poza zakresem dla kategorii "
++ this.category.getTitle());
+}
+}
+
+private void validateCategory() {
+if (this.template != null) {
+if (!this.category.equals(this.template.getCategory())) {
+throw new IllegalStateException(
+"Szablon strony należy do innej kategorii niż sama strona. Strona: "
++ this.pageNumber
++ ", kategoria strony: "
++ this.category
++ ", kategoria szablonu: "
++ this.template.getCategory());
+}
+}
+}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=customjava, caption={Mapper TeletextAdminPageMapper - konwersje między encją a DTO}, label={lst:teletext_admin_page_mapper}]
+@Mapper(
+componentModel = "spring",
+uses = {
+TeletextPageMapper.class,
+TeletextCategoryMapper.class,
+})
+public interface TeletextAdminPageMapper {
+
+@Mapping(target = "type", expression = "java(page.getType())")
+TeletextAdminPageResponse toResponse(TeletextPage page);
+
+@Mapping(target = "content.title", source = "title")
+@Mapping(target = "content.description", source = "description")
+@Mapping(target = "content.source", constant = "MANUAL")
+TeletextPage toPage(ManualPageCreateRequest request);
+
+@Mapping(target = "template", ignore = true)
+TeletextPage toPage(TemplatePageCreateRequest request);
+
+@AfterMapping
+default void linkContent(@MappingTarget TeletextPage page) {
+if (page.getContent() != null) {
+page.getContent().setPage(page);
+}
+}
+
+@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapping(target = "template", ignore = true)
+void updatePageFromTemplateRequest(
+TemplatePageUpdateRequest request, @MappingTarget TeletextPage page);
+
+@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+@Mapping(target = "content.title", source = "title")
+@Mapping(target = "content.description", source = "description")
+void updatePageFromManualRequest(
+ManualPageUpdateRequest request, @MappingTarget TeletextPage page);
+}
+\end{lstlisting}
+
+
+	
+
+\newpage
+\section{Instrukcja uruchomieniowa}
+W celu uruchomienia aplikacji należy zainstalować na swoim urządzeniu następujące aplikacje: \textit{Docker}, \textit{GitHub CLI} oraz – w przypadku systemu Windows – aplikację umożliwiającą uruchomienie komendy \textit{make}.
+
+\subsection{Sklonowanie repoizytorium}
+Należy sklonować repozytorium:
+\texttt{git clone https://github.com/lukaszsz1991/teletext-dev.git} \newline
+
+Repozytorium zawiera konfigurację infrastruktury projektu \textbf{Teletext}, w tym:
+\begin{itemize}
+	\item repozytoria \texttt{teletext-backend} oraz \texttt{teletext-frontend},
+	\item folder \texttt{docker-files} z plikami obrazów Dockera oraz logami serwisów,
+	\item plik \texttt{Makefile} ze skryptami pomocnicznymi,
+	\item konfigurację serwisów Dockera w pliku \texttt{compose.yml}.
+\end{itemize}
+
+\subsection{Praca z submodułami}
+
+Każdy submoduł jest osobnym repozytorium Git. Przechodząc do odpowiedniego podfolderu
+(\texttt{backend} lub \texttt{frontend}), pracujemy bezpośrednio w danym repozytorium.
+Oznacza to możliwość tworzenia gałęzi, aktualizacji kodu, wykonywania commitów oraz
+tworzenia Pull Requestów.
+
+\paragraph{Uwaga}
+Po wdrożeniu zmian w submodułach do gałęzi \texttt{main}, należy zaktualizować repozytorium
+\texttt{teletext-dev}.
+
+\begin{verbatim}
+make rebase            # (opcjonalnie)
+make push-backend      # dla zmian w backendzie
+make push-frontend     # dla zmian w frontendzie
+\end{verbatim}
+
+Alternatywnie, w celu uzyskania większej kontroli (np. nad treścią komunikatu commita),
+można wykonać następujące kroki:
+
+\begin{verbatim}
+cd teletext-dev
+make rebase
+git add backend    # lub frontend, zależnie od zmian
+git commit -m "chore: update submodules"
+git push -u origin <branch>
+\end{verbatim}
+
+Powyższy commit w repozytorium \texttt{teletext-dev} aktualizuje referencję submodułu do
+najnowszej wersji gałęzi \texttt{main}, umożliwiając wszystkim współpracownikom pobranie
+aktualnego stanu projektu.
+
+\subsubsection{Aktualizacja submodułów}
+
+Przed rozpoczęciem pracy zaleca się upewnienie, że wszystkie repozytoria są aktualne.
+W tym celu należy wykonać polecenie:
+
+\begin{verbatim}
+make rebase
+\end{verbatim}
+
+Polecenie to uruchamia następujący skrypt:
+
+\begin{verbatim}
+git pull --rebase
+git submodule update --init --recursive --remote --jobs 2
+\end{verbatim}
+
+Wykonanie powyższych komend powoduje pobranie najnowszych wersji repozytoriów z gałęzi
+\texttt{main}.
+
+\subsection{Docker Compose}
+
+Projekt wykorzystuje Docker Compose do lokalnego uruchamiania wszystkich serwisów, w tym:
+\begin{itemize}
+	\item bazę danych PostgreSQL (\texttt{postgres}),
+	\item backend oparty o Spring Boot (\texttt{backend}),
+	\item frontend oparty o React oraz Nginx (\texttt{frontend}).
+\end{itemize}
+
+\subsubsection{Uruchamianie środowiska}
+
+Aby uruchomić środowisko lokalne, należy:
+\begin{enumerate}
+	\item Upewnić się, że Docker jest zainstalowany w systemie.
+	\item Skopiować plik \texttt{.env.example} do \texttt{.env} i dostosować zmienne środowiskowe.
+	\item Skopiować plik \texttt{.env.webclient.example} do \texttt{.env.webclient}.
+	\item Uruchomić serwisy poleceniem:
+\end{enumerate}
+
+\begin{verbatim}
+docker-compose up --build -d
+\end{verbatim}
+
+Alternatywnie można skorzystać z polecenia:
+
+\begin{verbatim}
+make build-up
+\end{verbatim}
+
+\subsection{Makefile}
+
+Plik \texttt{Makefile} zawiera zestaw pomocnych komend usprawniających pracę nad projektem.
+Tabela~\ref{tab:makefile} przedstawia dostępne polecenia.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ll}
+		\toprule
+		\textbf{Komenda} & \textbf{Opis} \\
+		\midrule
+		\texttt{make rebase} & Aktualizuje repozytorium i submoduły \\
+		\texttt{make push-backend} & Wypycha zmiany backendu do repozytorium zdalnego \\
+		\texttt{make push-frontend} & Wypycha zmiany frontendu do repozytorium zdalnego \\
+		\texttt{make build} & Buduje obrazy Dockera dla wszystkich serwisów \\
+		\texttt{make build-up} & Buduje i uruchamia obrazy Dockera \\
+		\texttt{make up} & Uruchamia serwisy Docker Compose \\
+		\texttt{make down} & Zatrzymuje serwisy Docker Compose \\
+		\texttt{make logs} & Wyświetla logi wszystkich serwisów \\
+		\texttt{make restart} & Przebudowuje i restartuje wszystkie serwisy \\
+		\texttt{make restart-backend} & Restartuje backend aplikacji \\
+		\texttt{make restart-frontend} & Restartuje frontend aplikacji \\
+		\bottomrule
+	\end{tabular}
+	\caption{Dostępne polecenia Makefile}
+	\label{tab:makefile}
+\end{table}
+	
+	\section{Opis użytych technologii}
+	\label{sec:opis_uzytych_technologii}
+	\subsection{Struktura bazy danych}
+	\subsection*{Charakterystyka ogólna}
+	System \textbf{Teletext} wykorzystuje relacyjną bazę danych \textbf{PostgreSQL 17.2}. 
+	Wybór ten podyktowany był potrzebą zapewnienia pełnej spójności danych (ACID), 
+	wsparcia dla zaawansowanych typów tekstowych oraz łatwej integracji z frameworkiem 
+	Spring Boot poprzez Hibernate/JPA.
+	
+	\subsection*{Struktura danych i kluczowe encje}
+	Baza danych została podzielona na logiczne obszary odpowiedzialne za treść, administrację oraz analitykę. 
+	Poniżej znajduje się opis najważniejszych tabel:
+	
+	\subsubsection*{1. Zarządzanie treścią (\texttt{pages} \& \texttt{categories})}
+	\begin{itemize}
+		\item \textbf{Strony telegazety (\texttt{pages}):} Główna tabela systemu. 
+		Przechowuje unikalny numer strony (klucz główny), tytuł, treść tekstową oraz meta-dane. 
+		Treść wspiera znaki specjalne i grafikę ASCII.
+		\item \textbf{Kategorie (\texttt{categories}):} Słownik pozwalający na grupowanie stron 
+		(np. Sport, Gospodarka). Każda strona jest przypisana do jednej kategorii, co optymalizuje proces 
+		wyszukiwania i filtrowania treści.
+	\end{itemize}
+	
+	\subsubsection*{2. Automatyzacja i Integracje (\texttt{integrations})}
+	\begin{itemize}
+		\item \textbf{Integracje zewnętrzne:} Tabela przechowująca konfigurację dla modułów automatycznych. 
+		Definiuje ona typ integracji (np. API pogodowe, wyniki giełdowe) oraz mapuje pobrane dane na konkretne 
+		numery stron telegazety. Dzięki temu system może bezobsługowo aktualizować treści w czasie rzeczywistym.
+	\end{itemize}
+	
+	\subsubsection*{3. Bezpieczeństwo i Uprawnienia (\texttt{users})}
+	\begin{itemize}
+		\item \textbf{Użytkownicy i Role:} Tabela przechowująca dane dostępowe administratorów i redaktorów. 
+		System ról (Spring Security) definiuje zakres uprawnień – od możliwości podglądu statystyk po pełną edycję 
+		struktury stron i zarządzanie integracjami.
+	\end{itemize}
+	
+	\subsubsection*{4. Analityka i Wydajność}
+	\begin{itemize}
+		\item \textbf{Statystyki odwiedzin (\texttt{statistics}):} Rejestruje zdarzenia wyświetlenia poszczególnych stron. 
+		Dane te służą do generowania raportów popularności w panelu administratora.
+		\item \textbf{Warstwa Cache (Redis):} Mimo że Redis nie jest bazą relacyjną, stanowi integralną część 
+		modelu danych jako magazyn typu klucz-wartość. Przechowuje on zserializowane obiekty stron, co 
+		znacząco odciąża PostgreSQL przy dużym natężeniu ruchu.
+	\end{itemize}
+	
+	\subsection*{Zarządzanie schematem}
+	Integralność struktury bazy danych jest utrzymywana przez narzędzie \textbf{Flyway 10.20.1}. 
+	Wszystkie zmiany w modelu (tworzenie tabel, dodawanie kolumn) są wprowadzane poprzez skrypty migracyjne SQL, 
+	co zapewnia identyczną strukturę bazy na każdym środowisku uruchomieniowym.
+	
+	\subsection{Opis środowiska}
+	\subsubsection{Baza danych - PostgreSQL 17.2}
+	System bazodanowy wykorzystywany w projekcie to PostgreSQL w wersji 17.2. PostgreSQL to wydajny, stabilny i bezpieczny system zarządzania relacyjną bazą danych, szeroko stosowany w~środowiskach produkcyjnych. \\
+	Konfiguracja dostępu do bazy danych znajduje się w pliku docker-compose.yml.
+	
+	\subsubsection{Migracje schematu – Flyway 10.20.1}
+	Do zarządzania migracjami schematu bazy danych wykorzystywane jest narzędzie Flyway w wersji 10.20.1. Flyway umożliwia wersjonowanie zmian w strukturze bazy danych i ich automatyczne stosowanie w środowiskach deweloperskich, testowych oraz produkcyjnych. \\
+	Cechy użycia Flyway w projekcie:
+	\begin{itemize}
+		\item migracje definiowane w postaci skryptów SQL w katalogu db/migration,
+		
+		\item automatyczne wykrywanie i stosowanie nowych migracji przy starcie aplikacji,
+		
+		\item wsparcie dla rollbacków i walidacji historii migracji.
+	\end{itemize}
+	
+	\subsubsection{Cache – Redis 7.4.2-alpine}
+	\label{cache}
+	Do przechowywania danych tymczasowych oraz buforowania odpowiedzi system korzysta z Redis w wersji 7.4.2-alpine. Redis działa jako zewnętrzny, szybki magazyn danych typu key-value, wykorzystywany m.in. do cache’owania wyników zapytań i danych sesyjnych. \\
+	Wersja alpine została wybrana ze względu na minimalny rozmiar obrazu oraz szybki czas uruchamiania kontenera.
+	
+	\section{Integracje z zewnętrznymi serwisami}
+	
+	\subsection{Dostępne źródła}
+	
+	Aplikacja integruje się z siedmioma zewnętrznymi interfejsami API, które dostarczają
+	dane do wyświetlenia w telegazecie:
+	\begin{itemize}
+		\item Narodowy Bank Polski (\url{https://api.nbp.pl/}) -- kursy walut,
+		\item OpenMeteo (\url{https://open-meteo.com/en/docs}) -- dane pogodowe,
+		\item Lotto (\url{https://developers.lotto.pl/}) -- dane losowań lotto,
+		\item News Data (\url{https://newsdata.io/}) -- wiadomości,
+		\item Jooble (\url{https://help.jooble.org/en/support/solutions/articles/60001448238-rest-api-documentation}) -- oferty pracy,
+		\item Mój codzienny horoskop (\url{https://www.moj-codzienny-horoskop.com/webmaster/api-horoskop-xml-json.htm}) -- horoskop,
+		\item Highlightly (\url{https://highlightly.net/documentation/football/}) -- dane piłkarskie,
+		\item TVP (\url{https://www.tvp.pl/prasa}) -- program telewizyjny TVP.
+	\end{itemize}
+	
+	\subsection{Konfiguracja web clientów}
+	
+	W backendzie aplikacji, w pliku \texttt{application.properties}, znajduje się wydzielona
+	sekcja przeznaczona do konfiguracji web clientów.
+	
+	Wszystkie pola konfiguracyjne muszą zostać uzupełnione, aby aplikacja działała poprawnie.
+	Właściwości związane z web clientami posiadają prefiks \texttt{webclient} i zaleca się
+	dostarczanie ich do aplikacji poprzez zmienne środowiskowe.
+	
+	Konfiguracja web clientów obejmuje:
+	\begin{itemize}
+		\item czasy timeoutów,
+		\item bazowe adresy URL,
+		\item klucze API (jeżeli są wymagane przez dane źródło).
+	\end{itemize}
+	
+	Wszystkie połączenia z zewnętrznymi API realizowane są asynchronicznie, co poprawia
+	wydajność aplikacji oraz doświadczenie użytkownika. Każde źródło danych posiada
+	skonfigurowanego osobnego klienta.
+	
+
+\textbf{General:}
+\begin{itemize}
+	\item \texttt{webclient.response-timeout-ms} (\texttt{WEBCLIENT\_RESPONSE\_TIMEOUT\_MS}) -- maks. czas oczekiwania na odpowiedź (ms), domyślnie \texttt{5000}.
+	\item \texttt{webclient.connection-timeout-ms} (\texttt{WEBCLIENT\_TIMEOUT\_MS}) -- maks. czas zestawienia połączenia (ms), domyślnie \texttt{5000}.
+\end{itemize}
+
+\textbf{Base URL:}
+\begin{itemize}
+	\item \texttt{webclient.nbp-base-url} (\texttt{WEBCLIENT\_NBP\_API\_BASE\_URL}) -- \url{https://api.nbp.pl/}
+	\item \texttt{webclient.open-meteo-base-url} (\texttt{WEBCLIENT\_OPEN\_METEO\_API\_BASE\_URL}) -- \url{https://api.open-meteo.com/}
+	\item \texttt{webclient.lotto-base-url} (\texttt{WEBCLIENT\_LOTTO\_API\_BASE\_URL}) -- \url{https://developers.lotto.pl/}
+	\item \texttt{webclient.news-data-base-url} (\texttt{WEBCLIENT\_NEWS\_DATA\_API\_BASE\_URL}) -- \url{https://newsdata.io/}
+	\item \texttt{webclient.jooble-base-url} (\texttt{WEBCLIENT\_JOOBLE\_API\_BASE\_URL}) -- \url{https://jooble.org/}
+	\item \texttt{webclient.horoscope-base-url} (\texttt{WEBCLIENT\_HOROSCOPE\_API\_BASE\_URL}) -- \url{https://www.moj-codzienny-horoskop.com/}
+	\item \texttt{webclient.highlightly-base-url} (\texttt{WEBCLIENT\_HIGHLIGHTLY\_API\_BASE\_URL}) -- \url{https://sports.highlightly.net/}
+	\item \texttt{webclient.tvp-base-url} (\texttt{WEBCLIENT\_TVP\_API\_BASE\_URL}) -- \url{https://www.tvp.pl/}
+\end{itemize}
+\textbf{Secrets (wymagane):}
+\begin{itemize}
+	\item \texttt{webclient.lotto-secret} (\texttt{WEBCLIENT\_LOTTO\_SECRET}) -- klucz API Lotto
+	\item \texttt{webclient.news-data-secret} (\texttt{WEBCLIENT\_NEWS\_DATA\_SECRET}) -- klucz API NewsData
+	\item \texttt{webclient.jooble-secret} (\texttt{WEBCLIENT\_JOOBLE\_SECRET}) -- klucz API Jooble
+	\item \texttt{webclient.highlightly-secret} (\texttt{WEBCLIENT\_HIGHLIGHTLY\_SECRET}) -- klucz API Highlightly
+\end{itemize}
+
+
+	\subsection{Format zwracanego contentu}
+	
+	Wszystkie integracje wykorzystują ujednolicone DTO \texttt{ExternalDataResponse},
+	które zawiera następujące pola:
+	\begin{itemize}
+		\item \texttt{source} -- źródło danych (\texttt{String}),
+		\item \texttt{title} -- tytuł treści (\texttt{String}),
+		\item \texttt{description} -- główny opis treści (\texttt{String}),
+		\item \texttt{additionalData} -- dodatkowe informacje zależne od źródła
+		(\texttt{Map<String, Object>}).
+	\end{itemize}
+	
+	Zawartość pól \texttt{source} oraz \texttt{additionalData} zależy od konkretnej integracji.
+	Szczegółowy opis dla poszczególnych źródeł znajduje się w załącznikach:
+	\begin{itemize}
+		\item Narodowy Bank Polski,
+		\item OpenMeteo,
+		\item Lotto,
+		\item News Data,
+		\item Jooble,
+		\item Mój codzienny horoskop,
+		\item Highlightly,
+		\item TVP.
+	\end{itemize}
+	
+	\subsection{Obsługa błędów}
+	
+	W przypadku niepowodzenia pobrania danych z zewnętrznego serwisu, błąd przekazywany jest
+	dalej wraz z oryginalnym kodem błędu źródłowego API.
+	
+	Błędy prezentowane są w tym samym formacie co pozostałe błędy aplikacji, zgodnie
+	ze standardem \texttt{ProblemDetail} dostarczanym przez framework Spring
+	(\url{https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/ProblemDetail.html}).
+	
+		\newpage
+	\addcontentsline{toc}{section}{Spis rysunków}
+	\listoffigures
+	\newpage
+	\addcontentsline{toc}{section}{Spis listingów}
+	\lstlistoflistings
+	
+	
+\end{document}
