@@ -1,0 +1,566 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[colorlinks=true,
+linkcolor=black,
+urlcolor=blue,
+citecolor=black]{hyperref}
+
+
+
+%opening
+\title{Dokumentacja użytkownika aplikacji Teletext}
+\author{Sebastian Górski\\ Jakub Grzymisławski\\ Łukasz Szenkiel\\Rafał Wilczewski}
+\date{}
+
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty} 
+	
+	\begin{center}
+		\vspace{10em}
+		\includegraphics[width=0.6\textwidth]{CWUPlogo.png} \\[10em]
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	
+	\newpage
+\section*{Opis}
+\addcontentsline{toc}{section}{Opis}
+
+Dokumentacja dotyczy aplikacji \textit{Teletext}, nowoczesnego systemu zarządzania telegazetą. Aplikacja została zaprojektowana z myślą o ułatwieniu tworzenia, edycji i publikacji treści telegazety w~sposób szybki, intuicyjny i zgodny ze współczesnymi standardami cyfrowymi.  
+
+System umożliwia użytkownikom zarówno przeglądanie dostępnych stron telegazety, jak i zarządzanie jej zawartością w czasie rzeczywistym. Względem aplikacji postawiono następujące wymagania:  
+\begin{itemize}
+	\item użytkownik może przeglądać strony telegazety (struktura numerów stron!)
+	\item użytkownik może wyszukiwać informacje po tytułach i kategoriach
+	administrator może tworzyć własne strony telegazety
+	\item strona ma numer, tytuł, kategorię i treść
+	\item treść może zawierać tekst i proste elementy graficzne (ASCII)
+	\item administrator może przypisywać wybrane integracje do numerów stron
+	\item należy zaimplementować min. 7 integracji, np. pogoda, wyniki lotto, głosowania w Sejmie, ogłoszenia o pracę, kursy walut, ceny kruszców
+	\item administrator widzi statystyki najczęściej odwiedzanych stron
+\end{itemize}
+
+Celem projektu jest stworzenie narzędzia, które nie tylko ułatwi pracę redaktorom i administratorom telegazety, ale również zapewni użytkownikom końcowym przyjazny i funkcjonalny interfejs do przeglądania informacji.
+
+\newpage
+\section{Wymagania systemowe}
+\subsection{Wymagania sprzętowe}
+
+Aplikacja \textit{Teletext} została zaprojektowana jako system działający w przeglądarce internetowej, dlatego nie wymaga specjalistycznego sprzętu ani instalacji dodatkowego oprogramowania. Do prawidłowego działania aplikacji wystarczy dowolne urządzenie (komputer stacjonarny, laptop, tablet lub smartfon) wyposażone w nowoczesną przeglądarkę internetową oraz stabilne połączenie z Internetem.  
+
+Dzięki temu użytkownicy mogą korzystać z aplikacji zarówno w środowisku domowym, jak i w pracy, bez konieczności spełniania konkretnych parametrów sprzętowych.
+
+\subsection{Wymagania programowe}
+
+\begin{itemize}
+	\item \textbf{System operacyjny:} dowolny system obsługujący nowoczesną przeglądarkę internetową (Windows, macOS, Linux, Android, iOS)
+	\item \textbf{Przeglądarka internetowa:} Google Chrome, Mozilla Firefox, Microsoft Edge, Safari (wersje aktualne)
+	\item \textbf{Aktywne JavaScript i obsługa cookies} w przeglądarce
+	\item \textbf{Połączenie internetowe:} wymagane do dostępu do serwera aplikacji
+\end{itemize}
+
+
+\section{Role użytkowników}
+Aplikacja \textit{Teletext} przewiduje różne poziomy dostępu w zależności od uprawnień użytkownika. Każda rola ma przypisane konkretne funkcje i możliwości, co pozwala zapewnić bezpieczeństwo systemu oraz odpowiednią kontrolę nad treścią telegazety. Wyróżniamy następujące role:
+
+\subsection{Użytkownik końcowy}
+
+	\textbf{Użytkownik końcowy} – osoba przeglądająca strony telegazety. Użytkownik może:
+	\begin{itemize}
+		\item przeglądać dostępne strony według numerów i kategorii,
+		\item wyszukiwać treści po tytułach i kategoriach,
+		\item korzystać z integracji (np. pogoda, kursy walut) udostępnionych na stronach.
+	\end{itemize}
+	
+	\subsection{Administrator}
+	\textbf{Administrator / Redaktor} – osoba odpowiedzialna za tworzenie, edycję i~publikację treści. Administrator może:
+	\begin{itemize}
+		\item tworzyć nowe strony telegazety,
+		\item edytować lub usuwać istniejące strony,
+		\item przypisywać integracje do wybranych numerów stron,
+		\item przeglądać statystyki odwiedzin stron,
+		\item zarządzać kategoriami i tytułami stron.
+	\end{itemize}
+
+
+\subsection{Diagram przypadków użycia}
+
+Poniżej przedstawiono diagram przypadków użycia, ilustrujący interakcje pomiędzy użytkownikami a systemem:
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{docimages/diagram_przypadkow_uzycia.png}
+	\caption{Diagram przypadków użycia}
+	\label{fig:diagram_przypadkow_uzycia}
+	\end{figure}
+
+\noindent
+Na diagramie widać dwie główne role: \textit{Użytkownik końcowy} oraz \textit{Administrator}, oraz ich interakcje z funkcjami systemu, takimi jak przeglądanie stron, wyszukiwanie informacji, zarządzanie treścią i monitorowanie statystyk.
+
+
+\section{Uruchomienie aplikacji}
+
+Aplikacja \textit{Teletext} została stworzona jako system działający w przeglądarce internetowej, dlatego jej uruchomienie nie wymaga instalacji dodatkowego oprogramowania na komputerze użytkownika. Poniżej przedstawiono kroki niezbędne do rozpoczęcia korzystania z aplikacji.
+
+\subsection{Dostęp do aplikacji}
+
+\begin{enumerate}
+	\item Otwórz przeglądarkę internetową (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari).  
+	\item W pasku adresu wpisz adres aplikacji:  
+\begin{center}
+	\url{http://34.118.43.40/}
+\end{center}
+	\item Po załadowaniu strony użytkownik zostaje przekierowany do ekranu głównego, z którego można przeglądać dostępne strony telegazety.
+\end{enumerate}
+
+\subsection{Logowanie administratora}
+
+Aby uzyskać dostęp do funkcji administracyjnych (tworzenie i edycja stron, przypisywanie integracji, podgląd statystyk), należy zalogować się jako administrator:
+
+\begin{enumerate}
+	\item Na ekranie głównym kliknij przycisk „Zaloguj się” lub przejdź do sekcji logowania.  
+	\item Wprowadź swoją nazwę użytkownika i hasło.  
+	\item Kliknij przycisk „Zaloguj się”.  
+	\item Po poprawnym zalogowaniu system przekieruje użytkownika do panelu administratora, gdzie dostępne są wszystkie funkcje zarządzania treścią.
+\end{enumerate}
+
+\subsection{Wylogowanie}
+
+Po zakończeniu pracy w panelu administratora należy się wylogować, aby chronić dane i ograniczyć dostęp do funkcji zarządzania:
+
+\begin{enumerate}
+	\item Kliknij przycisk „Wyloguj” w górnym menu panelu administratora.  
+	\item System przekieruje użytkownika z powrotem na ekran główny aplikacji.
+\end{enumerate}
+
+
+\subsection{Wymagania dodatkowe dla uruchomienia}
+	\begin{itemize}
+	\item Aktywne połączenie internetowe.  
+	\item Włączona obsługa JavaScript w przeglądarce.  
+	\item Włączona obsługa cookies, jeśli logowanie administratora opiera się na sesjach.
+	\end{itemize}
+
+\noindent
+Dzięki powyższym krokom użytkownicy końcowi mogą natychmiast rozpocząć przeglądanie telegazety, a administratorzy zarządzanie jej zawartością w pełni funkcjonalny sposób.
+
+
+\section{Interfejs użytkownika}
+\subsection{Ekran główny}
+
+Ekran główny aplikacji \textit{Teletext} jest centralnym miejscem startowym zarówno dla użytkowników końcowych, jak i administratorów. Został zaprojektowany w stylu retro, charakterystycznym dla klasycznych telegazet, i zapewnia przejrzystą nawigację oraz szybki dostęp do najważniejszych funkcji systemu.
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{docimages/ekran_glowny.png}
+	\caption{Ekran główny}
+	\label{fig:ekran_glownby}
+	\end{figure}
+
+\begin{itemize}
+	\item \textbf{Nagłówek:} 
+	\begin{itemize}
+		\item Wyświetla nazwę aplikacji: \textbf{TELEGAZETA}  
+		\item Podtytuł informujący o systemie zarządzania: \textbf{SYSTEM ZARZĄDZANIA TELEGAZETĄ}
+	\end{itemize}
+	
+	\item \textbf{Portal Czytelnika:}
+	\begin{itemize}
+		\item Sekcja dedykowana użytkownikom końcowym, oznaczona ikoną \texttt{Portal Czytelnika}.
+		\item Zawiera przycisk \textbf{CZYTAJ}, umożliwiający przeglądanie numerów telegazety oraz odkrywanie nowych artykułów.
+		\item Krótki opis funkcjonalności: „Przeglądaj numery telegazety, odkrywaj nowe artykuły i bądź na bieżąco z najnowszymi wiadomościami.”
+	\end{itemize}
+	
+	\item \textbf{Panel Administratora:}
+	\begin{itemize}
+		\item Sekcja dla administratorów, oznaczona ikoną \texttt{Panel Administratora}.
+		\item Zawiera przycisk \textbf{ZALOGUJ}, który umożliwia dostęp do funkcji zarządzania treścią.
+		\item Administrator może tworzyć i edytować strony telegazety, przypisywać integracje oraz monitorować statystyki odwiedzin.
+		\item Sekcja jest wyraźnie oddzielona od portalu czytelnika, co zapobiega przypadkowemu wejściu w tryb administracyjny.
+	\end{itemize}
+	
+	\item \textbf{Co oferujemy:} 
+	\begin{itemize}
+		\item Przegląd struktury numerów telegazety.
+		\item Edytor stron z możliwością dodawania tekstu i elementów ASCII art.
+		\item Integracje zewnętrzne: pogoda, wyniki lotto, tabela ekstraklasy, kursy walut, wiadomości.
+		\item Statystyki odwiedzin i popularności stron.
+		\item Responsywny design w stylu retro.
+	\end{itemize}
+	
+	\item \textbf{Technologia i informacje o systemie:}
+	\begin{itemize}
+		\item Frontend: React
+		\item Komunikacja z backendem: REST API
+		\item Dokumentacja API: OpenAPI
+		\item Styl graficzny: klasyczna telegazeta (retro aesthetic)
+	\end{itemize}
+	
+	\item \textbf{Stopka:} 
+	\begin{itemize}
+		\item Informacje o prawach autorskich: \texttt{TELEGAZETA © 2025 | Wszystkie prawa zastrzeżone}  
+		\item Wersja systemu: \texttt{Wersja 1.0 BETA | System v0.1}
+	\end{itemize}
+\end{itemize}
+
+Ekran główny zapewnia intuicyjną i szybką nawigację zarówno dla użytkowników końcowych, jak i administratorów, jednocześnie zachowując charakterystyczny styl retro, który odzwierciedla klasyczną telegazetę.
+
+\subsection{Nawigacja po stronach telegazety}
+
+Sekcja \textbf{Lista Stron Telegazety} umożliwia użytkownikom końcowym szybkie przeglądanie dostępnych stron oraz dostęp do aktualnych informacji w~różnych kategoriach. Interfejs został zaprojektowany w sposób przejrzysty i~intuicyjny, zachowując charakterystyczny styl retro.
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{docimages/przegladanie_stron.png}
+	\caption{Przeglądanie stron}
+	\label{fig:przegladanie_stron}
+	\end{figure}
+
+\begin{itemize}
+	\item \textbf{Nagłówek:} 
+	\begin{itemize}
+		\item Wyświetla nazwę aplikacji: \textbf{TELEGAZETA}  
+		\item Podtytuł informujący o systemie zarządzania: \textbf{SYSTEM ZARZĄDZANIA TELEGAZETĄ}
+	\end{itemize}
+	
+	\item \textbf{Lista stron:} 
+	\begin{itemize}
+		\item Każda strona wyświetlana jest z numerem, tytułem oraz kategorią, np.:  
+		\begin{itemize}
+			\item 101 – Wiadomość lokalna (Wiadomości)  
+			\item 102 – Najnowsze Wiadomości (LIVE) (Wiadomości)  
+			\item 201 – Tabela Ekstraklasa (Sport)  
+			\item 302 – Wyniki Lotto (LIVE) (Gry losowe)  
+			\item 501 – Pogoda Wrocław (Pogoda)  
+			\item 801 – Kursy Walut (LIVE) (Finanse)  
+			\item 901 – Dodatkowa informacja wprowadzona przez administratora (Różne)
+		\end{itemize}
+		\item Łączna liczba stron jest wyświetlana na dole listy, np. „Łącznie stron: 10”.
+		\item Strony oznaczone jako \texttt{LIVE} są aktualizowane w czasie rzeczywistym.
+	\end{itemize}
+	
+	\item \textbf{Wyświetlanie strony:} 
+	\begin{itemize}
+		\item Kliknięcie numeru strony powoduje otwarcie pełnej zawartości danej strony telegazety.
+		\item Strona może zawierać tekst, elementy ASCII art oraz integracje (pogoda, kursy walut, wyniki lotto itp.).
+	\end{itemize}
+	
+	\item \textbf{Nawigacja:} 
+	\begin{itemize}
+		\item Użytkownik może wrócić do ekranu głównego klikając przycisk „\texttt{← Strona główna}”.
+		\item Interfejs jest responsywny, co pozwala na wygodne przeglądanie stron zarówno na komputerach, jak i urządzeniach mobilnych.
+	\end{itemize}
+	
+	\item \textbf{Stopka:} 
+	\begin{itemize}
+		\item Zawiera informacje o prawach autorskich: \texttt{TELEGAZETA © 2025 | Wszystkie prawa zastrzeżone}  
+		\item Wersja systemu: \texttt{Wersja 1.0 BETA | System v0.1}
+	\end{itemize}
+\end{itemize}
+
+Ekran \textbf{Lista Stron Telegazety} zapewnia użytkownikom szybki dostęp do wszystkich numerów telegazety, umożliwia natychmiastowe wyświetlenie interesujących treści i korzystanie z aktualnych integracji w czasie rzeczywistym.
+
+\subsection{Panel administratora}
+
+Panel administratora jest przeznaczony dla użytkowników z uprawnieniami administracyjnymi i umożliwia pełne zarządzanie treścią telegazety oraz monitorowanie jej statystyk. Dostęp do panelu wymaga uprzedniego zalogowania.
+
+\subsubsection{Logowanie administratora}
+
+\begin{enumerate}
+	\item Na ekranie głównym aplikacji kliknij przycisk \textbf{ZALOGUJ} w sekcji \texttt{Panel Administratora}.  
+	\item W formularzu logowania wprowadź swoją nazwę użytkownika oraz hasło.  
+	\item Kliknij przycisk \textbf{Zaloguj się}.  
+	\item Po poprawnym uwierzytelnieniu system przekieruje administratora do panelu, gdzie dostępne są wszystkie funkcje zarządzania.  
+\end{enumerate}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{docimages/okno_logowania.png}
+	\caption{Okno logowania}
+	\label{fig:okno_logowania}
+	\end{figure}
+
+\noindent
+\textbf{Uwagi:}
+\begin{itemize}
+	\item Nieudane próby logowania skutkują wyświetleniem komunikatu o~błędzie.  
+	\item Logowanie chroni dostęp do edycji treści i konfiguracji integracji.  
+	\item Po zakończeniu pracy zaleca się wylogowanie, aby zabezpieczyć panel przed nieautoryzowanym dostępem.
+\end{itemize}
+
+\subsubsection{Funkcje panelu administratora}
+
+Panel administratora oferuje szereg narzędzi do zarządzania zawartością telegazety:
+
+\begin{itemize}
+	\item \textbf{Tworzenie i edycja stron:}  
+	Administrator może tworzyć nowe strony telegazety, przypisywać im numer, tytuł, kategorię oraz wprowadzać treść. Edytor wspiera również dodawanie prostych elementów graficznych w formacie ASCII art.
+	
+	\item \textbf{Zarządzanie integracjami:}  
+	Panel umożliwia przypisywanie wybranych integracji do konkretnych stron, np.: pogoda, wyniki lotto, tabela ekstraklasy, kursy walut, wiadomości. Administrator może aktywować, wyłączyć lub skonfigurować parametry integracji.
+	
+	\item \textbf{Monitorowanie statystyk:}  
+	Panel prezentuje statystyki odwiedzin stron, w tym listę najczęściej przeglądanych treści. Pozwala to administratorom analizować popularność stron i optymalizować układ oraz zawartość telegazety.
+	
+	\item \textbf{Nawigacja w panelu:}  
+	Panel jest podzielony na sekcje umożliwiające szybkie przełączanie się między tworzeniem/edycją stron, konfiguracją integracji oraz podglądem statystyk.  
+	Przycisk „Wyloguj” umożliwia bezpieczne zakończenie sesji.
+\end{itemize}
+
+\subsubsection{Wygląd panelu}
+
+- Panel administratora jest zaprojektowany w stylu zgodnym z retro estetyką całej aplikacji, podobnie jak ekran główny.  
+- Interfejs jest responsywny, dzięki czemu umożliwia zarządzanie treścią zarówno na komputerach stacjonarnych, jak i na urządzeniach mobilnych.  
+- Kluczowe przyciski i sekcje są wyraźnie oznaczone, co ułatwia szybkie wykonywanie zadań administracyjnych.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.1\linewidth]{docimages/panel_administratora.png}
+		\caption{Wygląd panelu administratora}
+		\label{fig:panel_administratora}
+	\end{figure}
+
+\noindent
+Dzięki tym funkcjom panel administratora stanowi centralne narzędzie do tworzenia i utrzymywania telegazety, zapewniając jednocześnie bezpieczeństwo i pełną kontrolę nad zawartością systemu.
+
+
+\section{Instrukcja użytkowania}
+
+Niniejszy rozdział opisuje sposób korzystania z aplikacji \textit{Teletext} zarówno przez użytkowników końcowych, jak i administratorów systemu. Instrukcja została podzielona na podsekcje odpowiadające poszczególnym rolom użytkowników.
+
+\subsection{Instrukcja dla użytkownika końcowego}
+
+Użytkownik końcowy ma dostęp do funkcji przeglądania stron telegazety oraz korzystania z dostępnych integracji informacyjnych.
+
+\subsubsection{Uruchomienie aplikacji}
+
+Aby rozpocząć korzystanie z aplikacji:
+\begin{enumerate}
+	\item Otwórz dowolną nowoczesną przeglądarkę internetową.
+	\item Wpisz adres aplikacji \url{http://34.118.43.40/} w pasku adresu przeglądarki.
+	\item Po załadowaniu strony wyświetlony zostanie ekran główny aplikacji.
+\end{enumerate}
+
+\subsubsection{Przeglądanie stron telegazety}
+
+\begin{enumerate}
+	\item Na ekranie głównym kliknij przycisk \textbf{CZYTAJ} w sekcji \texttt{Portal Czytelnika}.
+	\item Zostanie wyświetlona lista dostępnych stron telegazety.
+	\item Każda strona opisana jest numerem, tytułem oraz kategorią.
+	\item Kliknięcie numeru strony powoduje otwarcie jej pełnej zawartości.
+\end{enumerate}
+
+\subsubsection{Korzystanie z integracji}
+
+Niektóre strony telegazety zawierają integracje z zewnętrznymi źródłami danych, oznaczone jako \texttt{LIVE}.
+Użytkownik może:
+\begin{itemize}
+	\item sprawdzać aktualną pogodę,
+	\item przeglądać kursy walut,
+	\item odczytywać wyniki losowań i wydarzeń sportowych,
+	\item korzystać z dynamicznie aktualizowanych treści.
+\end{itemize}
+
+Dane na stronach oznaczonych jako \texttt{LIVE} są aktualizowane automatycznie.
+
+\subsubsection{Nawigacja}
+
+\begin{itemize}
+	\item Powrót do listy stron możliwy jest poprzez przycisk \texttt{← Strona główna}.
+	\item Aplikacja działa w sposób responsywny i dostosowuje się do rozmiaru ekranu urządzenia.
+\end{itemize}
+
+\subsection{Instrukcja dla administratora}
+
+Administrator posiada rozszerzone uprawnienia umożliwiające zarządzanie zawartością telegazety.
+
+\subsubsection{Logowanie}
+
+\begin{enumerate}
+	\item Na ekranie głównym kliknij przycisk \textbf{ZALOGUJ} w sekcji \texttt{Panel Administratora}.
+	\item Wprowadź nazwę użytkownika oraz hasło.
+	\item Po poprawnym uwierzytelnieniu nastąpi przekierowanie do panelu administratora.
+\end{enumerate}
+
+\subsubsection{Tworzenie nowej strony telegazety}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/dodawanie.png}
+	\caption{Dodawanie stron}
+	\label{fig:dodawanie_stron}
+	\end{figure}
+
+Aby dodać nową stronę:
+\begin{enumerate}
+	\item Przejdź do sekcji zarządzania stronami.
+	\item Wybierz opcję \textbf{Dodaj nową stronę}.
+	\item Uzupełnij wymagane pola: numer strony, tytuł, kategoria oraz treść.
+	\item Zapisz stronę, aby została opublikowana w systemie.
+\end{enumerate}
+
+\subsubsection{Edycja i usuwanie stron}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/strony.png}
+	\caption{Widok stron}
+	\label{fig:widok_stron}
+	\end{figure}
+
+Administrator może:
+\begin{itemize}
+	\item edytować istniejące strony (zmiana treści, kategorii, numeru),
+	\item usuwać strony, które nie są już aktualne,
+	\item aktualizować zawartość stron dynamicznych.
+\end{itemize}
+
+\subsubsection{Zarządzanie integracjami}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/integracje.png}
+	\caption{Zarządzanie integracjami}
+	\label{fig:integracje}
+	\end{figure}
+
+\begin{enumerate}
+	\item W panelu administratora wybierz sekcję integracji.
+	\item Przypisz wybraną integrację do konkretnej strony.
+	\item Zapisz zmiany, aby integracja była widoczna dla użytkowników końcowych.
+\end{enumerate}
+
+\subsubsection{Podgląd statystyk}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/statystyki.png}
+	\caption{Podgląd statystyk}
+	\label{fig:statystyki}
+	\end{figure}
+
+Administrator ma dostęp do statystyk odwiedzin, które umożliwiają:
+\begin{itemize}
+	\item analizę popularności poszczególnych stron,
+	\item identyfikację najczęściej odwiedzanych treści,
+	\item optymalizację struktury telegazety.
+\end{itemize}
+
+\subsubsection{Wylogowanie}
+
+Po zakończeniu pracy administrator powinien:
+\begin{enumerate}
+	\item Kliknąć przycisk \textbf{Wyloguj}.
+	\item Zakończyć sesję w celu zabezpieczenia dostępu do panelu.
+\end{enumerate}
+
+
+\section{Obsługa błędów}
+
+Aplikacja \textit{Teletext} została zaprojektowana tak, aby użytkownik w przypadku błędów otrzymywał jasne komunikaty i mógł bezpiecznie kontynuować pracę.
+
+\subsection{Wyświetlenie nieistniejącej strony}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/brak_strony.png}
+	\caption{Próba wyświetlenia strony, która nie istnieje}
+	\label{fig:brak_strony}
+	\end{figure}
+
+Jeżeli użytkownik próbuje otworzyć stronę telegazety o numerze, który nie istnieje:
+\begin{itemize}
+	\item system wyświetla komunikat informujący, że dana strona nie istnieje,
+	\item użytkownik może wrócić do listy stron telegazety i wybrać inną stronę.
+\end{itemize}
+
+\subsection{Błędy logowania administratora}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.98\linewidth]{docimages/blad_logowania.png}
+	\caption{Błąd logowania: brak loginu i/lub hasła}
+	\label{fig:blad_logowania1}
+	\end{figure}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.98\linewidth]{docimages/blad_logowania2.png}
+	\caption{Błąd logowania: hasło zbyt krótkie}
+	\label{fig:blad_logowania2}
+	\end{figure}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/blad_logowania3.png}
+	\caption{Błąd logowania: błędne hasło}
+	\label{fig:blad_logowania3}
+	\end{figure}
+
+Podczas logowania do panelu administratora mogą wystąpić różne rodzaje błędów:
+
+\begin{itemize}
+	\item \textbf{Brak loginu lub hasła:}  
+	Jeśli użytkownik nie wprowadzi loginu lub hasła, system wyświetla komunikat: \textit{„Proszę wprowadzić login i hasło”}.
+	
+	\item \textbf{Nieistniejący login:}  
+	W przypadku, gdy wprowadzony login nie istnieje w bazie danych, system wyświetla komunikat: \textit{„Nieprawidłowy login”}.
+	
+	\item \textbf{Błędne hasło:}  
+	Jeżeli login istnieje, ale hasło jest niepoprawne, system wyświetla komunikat: \textit{„Nieprawidłowe hasło”}.
+	
+	\item \textbf{Hasło za krótkie:}  
+	Podczas zmiany lub tworzenia hasła system sprawdza jego długość. Jeśli hasło jest zbyt krótkie, wyświetlany jest komunikat: \textit{„Hasło jest zbyt krótkie – minimum 8 znaków”}.
+\end{itemize}
+
+\subsection{Niepoprawne wypełnienie formularza dodawania strony}
+
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{docimages/blad_dodawania_strony.png}
+	\caption{Błąd dodawania strony}
+	\label{fig:blad_dodawania}
+	\end{figure}
+
+
+Podczas tworzenia nowej strony telegazety administrator musi wypełnić wszystkie wymagane pola (numer strony, tytuł, kategoria). Jeśli pola są niekompletne lub błędnie wypełnione:
+\begin{itemize}
+	\item system wyświetla komunikat informujący o brakujących lub niepoprawnych danych,
+	\item zapis strony zostaje zablokowany do momentu poprawnego wypełnienia formularza.
+\end{itemize}
+
+
+\section{Podsumowanie}
+Dokumentacja przedstawia aplikację \textit{Teletext}, nowoczesny system do zarządzania telegazetą, który został zaprojektowany z myślą o prostocie użytkowania, elastyczności oraz zgodności ze współczesnymi standardami cyfrowymi.  
+
+Projekt realizuje główne cele, takie jak:  
+\begin{itemize}
+	\item umożliwienie użytkownikom końcowym przeglądania i wyszukiwania informacji w telegazecie w sposób szybki i intuicyjny,  
+	\item zapewnienie administratorom i redaktorom wygodnego panelu do tworzenia, edycji i publikacji stron telegazety,  
+	\item integracja z zewnętrznymi źródłami danych (pogoda, kursy walut, wyniki lotto, ogłoszenia itp.),  
+	\item monitorowanie statystyk odwiedzin, co pozwala na analizę popularności treści.  
+\end{itemize}
+
+Aplikacja \textit{Teletext} działa w przeglądarce internetowej, dzięki czemu jest dostępna na dowolnym urządzeniu – komputerze, laptopie, tablecie czy smartfonie – bez konieczności instalacji dodatkowego oprogramowania.  
+
+System został zaprojektowany w sposób skalowalny i elastyczny, co umożliwia dalszy rozwój oraz dodawanie nowych funkcji i integracji w przyszłości. Dzięki temu projekt stanowi nowoczesne, funkcjonalne narzędzie zarówno dla redaktorów, administratorów, jak i zwykłych użytkowników, zapewniając wygodny dostęp do informacji i pełną kontrolę nad zawartością telegazety.
+
+
+\section{Autorzy}
+Zespół twórców tworzą:
+\begin{itemize}
+	\item Sebastian Górski -- \url{https://github.com/sgroski00}
+	\item Jakub Grzymisławski -- \url{https://github.com/jgrzymislawski}
+	\item Łukasz Szenkiel -- \url{https://github.com/lukaszsz1991}
+	\item Rafał Wilczewski -- \url{https://github.com/Rafal-wq}
+\end{itemize}
+
+\end{document}
